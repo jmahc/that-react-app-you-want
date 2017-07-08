@@ -27,9 +27,9 @@ For you [npm] nerds:
 ---
 
 ## That engine version shit for you semantic manics
-- [NodeJS]: >=8.1.3
-- [npm]: >=5.0.3
-- [yarn]: >=0.27.5
+- [NodeJS] with: >=8.1.3
+- [npm] with: >=5.0.3
+- [yarn] with: >=0.27.5
 
 ---
 
