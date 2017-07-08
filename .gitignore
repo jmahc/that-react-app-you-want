@@ -4,6 +4,9 @@
 # build folder (production)
 /dist
 
+# DLL folder (development)
+/dll
+
 # misc
 .DS_Store
 .env
