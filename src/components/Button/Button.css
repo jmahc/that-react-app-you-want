@@ -1,0 +1,10 @@
+.Button-big {
+  width: 100px;
+  height: 75px;
+}
+
+/* This is not used & stripped with `purify-css` */
+.Button-small {
+  width: 75px;
+  height: 50px;
+}

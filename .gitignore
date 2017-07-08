@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# build folder (production)
+/dist
+
+# misc
+.DS_Store
+.env
+
+# npmjs.com
+npm-debug.log*
+
+# yarnpkg.com
+yarn-debug.log*
+yarn-error.log*
+.yarnclean

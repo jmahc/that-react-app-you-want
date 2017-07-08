@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "es2015",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "env",
+      {
+        "browsers": "last 1 Chrome version",
+        "loose": true,
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "react",
+    "babili"
+  ],
+  "comments": false,
+  "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
+}
