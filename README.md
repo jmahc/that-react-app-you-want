@@ -14,13 +14,15 @@ You can have it.
 ## Getting started
 For you [yarn] losers:
 1. `yarn` - install dependencies.
-2. `yarn run start` or `yarn run dev` - start development server.
-3. `yarn run build` - build for production.
+2. `yarn run dev:vendor` - **for quicker development builds** due to the DLL's generated.
+3. `yarn run start` or `yarn run dev` - start development server.
+4. `yarn run build` - build for production.
 
 For you [npm] nerds:
 1. `npm i` - install dependencies.
-2. `npm run start` or `npm run dev` - start development server.
-3. `npm run build` - build for production.
+2. `npm run dev:vendor` - **for quicker development builds** due to the DLL's generated.
+3. `npm run start` or `npm run dev` - start development server.
+4. `npm run build` - build for production.
 
 ---
 
