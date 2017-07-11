@@ -4,7 +4,7 @@ import './CodeSplittingComponent.css'
 const CodeSplittingComponent = props => {
   return (
     <div>
-      <button className='CodeSplittingComponent-button'>
+      <button className="CodeSplittingComponent-button">
         {props.lazyText}
       </button>
     </div>

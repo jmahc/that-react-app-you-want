@@ -7,14 +7,14 @@ import Icon from '@/components/Icon'
 import './App.css'
 
 class App extends Component {
-  render () {
+  render() {
     return (
-      <div className='App'>
-        <div className='App-header'>
+      <div className="App">
+        <div className="App-header">
           <Icon />
           <h2>this is that-react-app-you-want.</h2>
         </div>
-        <p className='App-intro'>
+        <p className="App-intro">
           Run the <code>build</code> command to check out purifycss or click the
           button for some chunks & lazy loading.
         </p>

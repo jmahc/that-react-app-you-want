@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import './Button.css'
 
 class Button extends Component {
-  constructor () {
+  constructor() {
     super()
     this.CodeSplittingComponentPropsText = null
   }
-  handleOnClick () {
+  handleOnClick() {
     import('@/components/CodeSplittingComponent/lazyText' /* webpackChunkName: "LazyText" */)
       .then(lazyTextResponse => {
         this.CodeSplittingComponentPropsText = lazyTextResponse.default
@@ -21,16 +21,16 @@ class Button extends Component {
       })
   }
 
-  render () {
+  render() {
     return this && this.Component && this.Component.default
       ? <this.Component.default
-        lazyText={this.CodeSplittingComponentPropsText}
-      />
+          lazyText={this.CodeSplittingComponentPropsText}
+        />
       : <div>
-        <button className='Button-big' onClick={() => this.handleOnClick()}>
+          <button className="Button-big" onClick={() => this.handleOnClick()}>
             Click here to code split, yo!
-        </button>
-      </div>
+          </button>
+        </div>
   }
 }
 

@@ -11,7 +11,6 @@ const PATHS = {
   babelConfig: require(resolvePath('config/babel.config.js')),
   build: resolvePath('dist'),
   dll: resolvePath('dll'),
-  dllManifest: resolvePath('dll/manifest.json'),
   favicon: resolvePath('public/favicon.ico'),
   indexHtml: resolvePath('public/index.html'),
   nodeModules: resolvePath('node_modules'),
@@ -19,7 +18,8 @@ const PATHS = {
   postCSS: resolvePath('config/postcss.config.js'),
   // This should be `/` if deploying to a website.
   // It is like this now for viewing the production build locally.
-  publicPath: isProduction ? './' : '/'
+  publicPath: isProduction ? './' : '/',
+  root: process.cwd()
 }
 
 export default PATHS

@@ -1,4 +1,5 @@
 import merge from 'webpack-merge'
+import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
@@ -46,12 +47,6 @@ const commonsConfig = merge([
         }
       ]
     },
-    node: {
-      dgram: 'empty',
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty'
-    },
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new HtmlWebpackPlugin({
@@ -85,6 +80,12 @@ const commonsConfig = merge([
       extensions: ['.js', '.jsx', '.json']
     },
     stats,
+    node: {
+      dgram: 'empty',
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty'
+    },
     target: 'web'
   },
   lintJavaScript({

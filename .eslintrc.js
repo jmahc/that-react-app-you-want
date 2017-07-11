@@ -61,12 +61,12 @@ var restrictedGlobals = [
   'top'
 ]
 
-module.exports = {
+const options = {
   root: true,
 
   parser: 'babel-eslint',
 
-  plugins: ['import', 'jsx-a11y', 'react'],
+  plugins: ['prettier', 'import', 'jsx-a11y', 'react'],
 
   env: {
     browser: true,
@@ -88,6 +88,18 @@ module.exports = {
   },
 
   rules: {
+    // eslint-plugin-prettier
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'none', // none, es5, all
+        bracketSpacing: true,
+        jsxBracketSameLine: false
+        // parser: 'flow'
+      }
+    ],
     // http://eslint.org/docs/rules/
     'array-callback-return': 'warn',
     'default-case': ['warn', { commentPattern: '^no default$' }],
@@ -263,7 +275,10 @@ module.exports = {
   }
 }
 
-const formatted = format(options)
+module.exports = options
 
+// const formatted = format(options)
+
+// formatted
 // notice no semicolon in the formatted text
-formatted // const { foo } = bar
+// module.exports = formatted // const { foo } = bar
