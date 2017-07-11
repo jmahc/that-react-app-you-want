@@ -26,7 +26,8 @@ const productionConfig = merge([
     }
   }),
   {
-    devtool: 'cheap-module-source-map',
+    // devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     output: {
       chunkFilename: '[name].[chunkhash].js',
       filename: '[name].[chunkhash].js',

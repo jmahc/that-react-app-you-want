@@ -104,7 +104,7 @@ const options = {
     'array-callback-return': 'warn',
     'default-case': ['warn', { commentPattern: '^no default$' }],
     'dot-location': ['warn', 'property'],
-    eqeqeq: ['warn', 'allow-null'],
+    // eqeqeq: ['warn', 'allow-null'],
     'new-parens': 'warn',
     'no-array-constructor': 'warn',
     'no-caller': 'warn',
@@ -276,9 +276,3 @@ const options = {
 }
 
 module.exports = options
-
-// const formatted = format(options)
-
-// formatted
-// notice no semicolon in the formatted text
-// module.exports = formatted // const { foo } = bar
