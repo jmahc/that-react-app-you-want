@@ -1,7 +1,7 @@
 {
   "name": "that-react-app-you-want",
   "version": "0.1.0",
-  "description": "That react app you always wanted: webpack@3.1.0, react, postCSS, purifycss, dll's and code splitting examples. Highly opinionated but you better like it.",
+  "description": "That react app you always wanted: webpack@3.3.0, react, postCSS, purifycss, dll's and code splitting examples. Highly opinionated but you better like it.",
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack --env production",
@@ -118,7 +118,9 @@
     "webpack-3",
     "webpack-v3",
     "webpack@3.0.0",
-    "webpack@3.1.0"
+    "webpack@3.1.0",
+    "webpack@3.2.0",
+    "webpack@3.3.0"
   ],
   "author": {
     "name": "Jordan McArdle",
