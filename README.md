@@ -9,7 +9,14 @@ Right here.
 
 You can have it.
 
+|
+| Last update: 7/22/2017 @ 3:50 AM CST
 ---
+
+## What do you want to see from this?
+Please fill free to open a card, or shoot me an email (found in the `package.json` file with tips, ideas and improvements!).
+
+Hopefully you guys are enjoying it!
 
 ## Getting started
 For you [yarn] losers:
@@ -36,7 +43,7 @@ For you [npm] nerds:
 ## What is inside, though?
 Some really cool things:
 
-- webpack v3.1.0
+- webpack v3.3.0
 - prettier formatting
 - webpack but you can use ES6 syntax
 - chunks
