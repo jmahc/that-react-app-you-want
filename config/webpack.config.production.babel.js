@@ -3,9 +3,10 @@ import merge from 'webpack-merge'
 import webpack from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import ChunkManifestPlugin from 'chunk-manifest-webpack-plugin'
-import WebpackChunkHash from 'webpack-chunk-hash'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
+import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import PurifyCSSPlugin from 'purifycss-webpack'
+import WebpackChunkHash from 'webpack-chunk-hash'
 
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
@@ -40,6 +41,11 @@ const productionConfig = merge([
       maxEntrypointSize: 100000
     },
     plugins: [
+      new PreloadWebpackPlugin({
+        rel: 'preload',
+        as: 'script',
+        include: 'asyncChunks'
+      }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new PurifyCSSPlugin({
         minimize: false,

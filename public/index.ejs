@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Open graph -->
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.seo.title %>" />
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.seo.url %>" />
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.seo.image %>" />
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.seo.description %>" />
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <!-- Injects the manifest.json file -->
     <%= htmlWebpackPlugin.files.webpackManifest %>
   </body>
 </html>

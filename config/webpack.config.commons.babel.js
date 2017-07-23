@@ -30,7 +30,8 @@ const commonsConfig = merge([
             /\.bmp$/,
             /\.gif$/,
             /\.jpe?g$/,
-            /\.png$/
+            /\.png$/,
+            /\.ejs$/
           ],
           loader: 'file-loader',
           options: {
@@ -65,6 +66,13 @@ const commonsConfig = merge([
           removeRedundantAttributes: true,
           removeStyleLinkTypeAttributes: true,
           useShortDoctype: true
+        },
+        seo: {
+          description: 'This is a description of the website.',
+          image: 'http://my-website.lol/og-image.jpg',
+          title: 'that-react-app-you-want',
+          twitter_handle: '@myTwitterHandle',
+          url: 'http://my-website.lol/'
         },
         template: PATHS.indexHtml,
         title: 'That react app you want'

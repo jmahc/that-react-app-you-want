@@ -12,12 +12,12 @@ const PATHS = {
   build: resolvePath('dist'),
   dll: resolvePath('dll'),
   favicon: resolvePath('public/favicon.ico'),
-  indexHtml: resolvePath('public/index.html'),
+  // Uncomment this for `favicons-webpack-plugin`
+  // image: resolvePath('public/my-image.png'),
+  indexHtml: resolvePath('public/index.ejs'),
   nodeModules: resolvePath('node_modules'),
   polyfills: resolvePath('config/polyfills'),
   postCSS: resolvePath('config/postcss.config.js'),
-  // This should be `/` if deploying to a website.
-  // It is like this now for viewing the production build locally.
   publicPath: isProduction ? './' : '/',
   root: process.cwd()
 }
