@@ -9,7 +9,8 @@
 
 # misc
 .DS_Store
-.env
+.
+/reports
 
 # npmjs.com
 npm-debug.log*

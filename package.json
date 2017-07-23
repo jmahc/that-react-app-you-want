@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "That react app you always wanted: webpack@3.3.0, react, postCSS, purifycss, dll's and code splitting examples. Highly opinionated but you better like it.",
   "main": "src/index.js",
   "scripts": {
@@ -99,7 +99,10 @@
   },
   "keywords": [
     "babel",
+    "babelJS",
     "babili",
+    "chunk",
+    "chunking",
     "chunks",
     "code-splitting",
     "DLL",
@@ -107,11 +110,15 @@
     "DllReferencePlugin",
     "es6",
     "eslint",
+    "favicon-generator",
     "generact",
     "hot-loader",
     "jsx",
     "manifest",
+    "mobile-icons",
     "postCSS",
+    "prefetch",
+    "preload",
     "purifycss",
     "react",
     "tree-shaking",
@@ -123,7 +130,8 @@
     "webpack@3.0.0",
     "webpack@3.1.0",
     "webpack@3.2.0",
-    "webpack@3.3.0"
+    "webpack@3.3.0",
+    "yarn"
   ],
   "author": {
     "name": "Jordan McArdle",
