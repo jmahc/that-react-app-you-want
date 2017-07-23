@@ -19,7 +19,9 @@ const PATHS = {
   polyfills: resolvePath('config/polyfills'),
   postCSS: resolvePath('config/postcss.config.js'),
   publicPath: isProduction ? './' : '/',
-  root: process.cwd()
+  root: process.cwd(),
+  vendorFilepath: resolvePath('dll/vendors.dll.js'),
+  vendorManifest: resolvePath('dll/vendors-manifest.json')
 }
 
 export default PATHS

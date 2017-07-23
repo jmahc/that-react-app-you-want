@@ -10,6 +10,7 @@ import PATHS from './paths.babel'
 import stats from './stats.babel'
 import { devServer, loadCSS } from './webpack.config.parts.babel'
 
+const isProduction = process.env.NODE_ENV === 'production'
 const PORT_NUMBER = process.env.PORT_NUMBER
 
 const developmentConfig = merge([
@@ -45,12 +46,11 @@ const developmentConfig = merge([
       // `yarn run dev:dll` or `npm run dev:dll`
       new webpack.DllReferencePlugin({
         context: PATHS.root,
-        // `require` is key here!
-        manifest: require.resolve('../dll/vendors-manifest.json')
+        manifest: PATHS.vendorManifest
       }),
       new AddAssetHtmlPlugin(
         {
-          filepath: require.resolve('../dll/vendors.dll.js'),
+          filepath: PATHS.vendorFilepath,
           includeSourceMap: true
         }
       ),
