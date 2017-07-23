@@ -1,4 +1,14 @@
 # that-react-app-you-want
+[![Build Status](https://travis-ci.org/jmahc/that-react-app-you-want.svg?branch=master)](https://travis-ci.org/jmahc/that-react-app-you-want)
+
+[![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+
+[![Watch on GitHub](https://img.shields.io/github/watchers/jmahc/that-react-app-you-want.svg?style=social)](https://github.com/jmahc/that-react-app-you-want/watchers)
+[![Star on GitHub](https://img.shields.io/github/stars/jmahc/that-react-app-you-want.svg?style=social)](https://github.com/jmahc/that-react-app-you-want/stargazers)
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/jmahc/that-react-app-you-want.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20that-react-app-you-want!%20https://github.com/jmahc/that-react-app-you-want%20%F0%9F%91%8D)
+
 **Yeah, this is it.**
 
 What you've all been waiting for: that **react app boilerplate shit** that you seek day and night.
@@ -190,11 +200,26 @@ plugins: [
 
 ---
 
-### About the author
-[About the author].
+## License
+
+MIT
 
 ---
+
+## Contributors
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars0.githubusercontent.com/u/5778136?v=3" width="100px;"/><br /><sub>Jordan McArdle</sub>](http://mcardle.tech/)<br />[💻](https://github.com/jmahc/that-react-app-you-want/commits?author=jmahc "Code") [📖](https://github.com/jmahc/that-react-app-you-want#README "Documentation") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors] specification. Contributions of any kind welcome!
+
+---
+
   [About the author]: <http://mcardle.tech/>
+  [all-contributors]: <https://github.com/kentcdodds/all-contributors/>
   [Favicon and Mobile Icon Generation]: <#faviconandmobileicongeneration>
   [favicons-webpack-plugin pageÂ]: <https://github.com/jantimon/favicons-webpack-plugin/>
   [generact]: <https://github.com/diegohaz/generact/>
