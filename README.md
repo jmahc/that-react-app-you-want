@@ -220,12 +220,12 @@ This project follows the [all-contributors] specification. Contributions of any 
 
   [About the author]: <http://mcardle.tech/>
   [all-contributors]: <https://github.com/kentcdodds/all-contributors/>
-  [Favicon and Mobile Icon Generation]: <#faviconandmobileicongeneration>
+  [Favicon and Mobile Icon Generation]: <#favicon-and-mobile-icon-generation>
   [favicons-webpack-plugin pageÂ]: <https://github.com/jantimon/favicons-webpack-plugin/>
   [generact]: <https://github.com/diegohaz/generact/>
   [NodeJS]: <https://nodejs.com/>
   [npm]: <https://npmjs.com/>
-  [Preload and Prefetch]: <#preloadandprefetch>
+  [Preload and Prefetch]: <#preload-and-prefetch>
   [preload-webpack-plugin repository]: <https://github.com/googlechrome/preload-webpack-plugin/>
   [this Medium article]: <https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf/>
   [webpack]: <https://webpack.js.org/>
