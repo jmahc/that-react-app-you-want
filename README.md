@@ -47,8 +47,8 @@ For you [npm] nerds:
 ---
 
 ## That engine version shit for you semantic manics
-- [NodeJS] with: >=8.1.3
-- [npm] with: >=5.0.3
+- [NodeJS] with: >=8.0.0
+- [npm] with: >=5.0.0
 - [yarn] with: >=0.27.5
 
 ---
@@ -56,7 +56,7 @@ For you [npm] nerds:
 ## What is inside, though?
 Some really cool things:
 
-- webpack v3.4.0
+- webpack v3.4.1
 - prettier formatting
 - webpack but you can use ES6 syntax
 - chunks
