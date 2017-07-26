@@ -1,7 +1,9 @@
 import glob from 'glob'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
+import BabiliPlugin from 'babili-webpack-plugin'
+// import BundleBuddyWebpackPlugin from 'bundle-buddy-webpack-plugin'
 import ChunkManifestPlugin from 'chunk-manifest-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
@@ -12,7 +14,6 @@ import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
 import {
   extractCSS,
-  minifyJavaScript,
   setFreeVariable
 } from './webpack.config.parts.babel'
 
@@ -27,7 +28,6 @@ const productionConfig = merge([
     }
   }),
   {
-    // devtool: 'cheap-module-source-map',
     devtool: 'source-map',
     output: {
       chunkFilename: '[name].[chunkhash].js',
@@ -41,6 +41,13 @@ const productionConfig = merge([
       maxEntrypointSize: 100000
     },
     plugins: [
+      // TODO - Contains an issue with `extract-text-webpack-plugin`
+      // however, separate.  With it commented out, it "builds", but the
+      // `extract-text-webpack-plugin` error is still thrown.
+      // new BundleBuddyWebpackPlugin({
+      //   sam: true,
+      //   warnings: true
+      // }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         as: 'script',
@@ -75,9 +82,10 @@ const productionConfig = merge([
         name: 'manifest',
         chunks: ['main', 'vendor']
       }),
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static'
-      }),
+
+      // JavaScript minification
+      new BabiliPlugin(),
+
       // Keeps the same [chunkhashes] for vendor and manifest files...
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash(),
@@ -89,7 +97,6 @@ const productionConfig = merge([
       })
     ]
   },
-  minifyJavaScript(),
   setFreeVariable('process.env.NODE_ENV', 'production')
 ])
 

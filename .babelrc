@@ -11,7 +11,11 @@
       {
         "browsers": "last 1 Chrome version",
         "loose": true,
-        "modules": false
+        "modules": false,
+        "targets": {
+          "node": "8.0"
+        },
+        "useBuiltIns": true
       }
     ],
     "stage-0",

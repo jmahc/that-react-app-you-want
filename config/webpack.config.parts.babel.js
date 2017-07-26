@@ -1,5 +1,4 @@
 import webpack from 'webpack'
-import BabiliPlugin from 'babili-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const devServer = ({ port, publicPath, stats } = {}) => ({
@@ -118,10 +117,6 @@ const loadJavaScript = ({ include, exclude, query }) => ({
   }
 })
 
-const minifyJavaScript = () => ({
-  plugins: [new BabiliPlugin()]
-})
-
 const setFreeVariable = (key, value) => {
   const env = {}
   env[key] = JSON.stringify(value)
@@ -137,6 +132,5 @@ export {
   lintJavaScript,
   loadCSS,
   loadJavaScript,
-  minifyJavaScript,
   setFreeVariable
 }

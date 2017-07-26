@@ -1,5 +1,8 @@
 # that-react-app-you-want
+
 [![Build Status](https://travis-ci.org/jmahc/that-react-app-you-want.svg?branch=master)](https://travis-ci.org/jmahc/that-react-app-you-want)
+[![Dependencies](https://david-dm.org/jmahc/that-react-app-you-want.svg)](https://david-dm.org/jmahc/that-react-app-you-want)
+[![devDependencies Status](https://david-dm.org/jmahc/that-react-app-you-want/dev-status.svg)](https://david-dm.org/jmahc/that-react-app-you-want?type=dev)
 
 [![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
@@ -53,7 +56,7 @@ For you [npm] nerds:
 ## What is inside, though?
 Some really cool things:
 
-- webpack v3.3.0
+- webpack v3.4.0
 - prettier formatting
 - webpack but you can use ES6 syntax
 - chunks
@@ -69,6 +72,7 @@ Some really cool things:
 - (optional) favicon generaton
 - (optional) preloading/prefetching
 - and last but not least: [generact]! Check that out, it's dope.
+- sample `travis.yml` file
 
 ---
 
@@ -116,7 +120,7 @@ Here's what to do:
 1. `yarn add --dev preload-webpack-plugin`.
 2. Don't forget to `import` the plugin at the top of the `config/webpack.config.production.babel.js` file, if not already:
 
-```js
+```javascript
 ...
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
 ...
@@ -146,7 +150,7 @@ These generate favicons for all devices (android, iOS, and the favicon itself) u
 1. `yarn add --dev favicons-webpack-plugin`
 2. In `config/webpack.config.commons.babel.js`, you will want to comment/remove the `favicons` key:
 
-```js
+```javascript
 ...
 plugins: [
   new HtmlWebpackPlugin({
@@ -159,14 +163,14 @@ plugins: [
 ```
 3. In `config/webpack.config.production.babel.js`, you will want to import the newly installed package at the top of the file:
 
-```js
+```javascript
 ...
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
 ...
 ```
 4. In the plugins section of the same production file, you will add this as one of the first plugins:
 
-```js
+```javascript
 ...
 plugins: [
   new FaviconsWebpackPlugin({
