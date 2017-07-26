@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
@@ -97,7 +97,10 @@
     "react-dom": "^15.6.1"
   },
   "main": "src/index.js",
-  "files": ["dist", "dll"],
+  "files": [
+    "dist",
+    "dll"
+  ],
   "browser": {
     "buffer": "none"
   },
