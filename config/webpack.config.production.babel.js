@@ -4,7 +4,8 @@ import webpack from 'webpack'
 
 import BabiliPlugin from 'babili-webpack-plugin'
 // import BundleBuddyWebpackPlugin from 'bundle-buddy-webpack-plugin'
-import ChunkManifestPlugin from 'chunk-manifest-webpack-plugin'
+// import ChunkManifestPlugin from 'chunk-manifest-webpack-plugin'
+import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import PurifyCSSPlugin from 'purifycss-webpack'
@@ -89,11 +90,8 @@ const productionConfig = merge([
       // Keeps the same [chunkhashes] for vendor and manifest files...
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash(),
-      new ChunkManifestPlugin({
-        filename: 'chunk-manifest.json',
-        // `html-webpack-plugin` will inject the file.
-        inlineManifest: true,
-        manifestVariable: 'webpackManifest'
+      new InlineManifestWebpackPlugin({
+        name: 'webpackManifest'
       })
     ]
   },
