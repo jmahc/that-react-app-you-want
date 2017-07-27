@@ -34,15 +34,20 @@ Hopefully you guys are enjoying it!
 ## Getting started
 For you [yarn] losers:
 1. `yarn` - install dependencies.
-2. `yarn run dev:vendor` - **for quicker development builds** due to the DLL's generated.
+2. `yarn run dev-vendor` - **for quicker development builds** due to the DLL's generated.
 3. `yarn run start` or `yarn run dev` - start development server.
 4. `yarn run build` - build for production.
 
 For you [npm] nerds:
 1. `npm i` - install dependencies.
-2. `npm run dev:vendor` - **for quicker development builds** due to the DLL's generated.
+2. `npm run dev-vendor` - **for quicker development builds** due to the DLL's generated.
 3. `npm run start` or `npm run dev` - start development server.
 4. `npm run build` - build for production.
+
+*NOTE*: Got a good request to update these commands to be eligible for Windows, macOS and Linux.
+Now, you will see a script command with `-` for macOS or Linux and a script command with `:` for Windows.
+
+Hope that helps!
 
 ---
 
@@ -201,6 +206,24 @@ plugins: [
 ...
 ```
 5. For reference, visit the [favicons-webpack-plugin page].
+
+---
+
+### Babili
+```javascript
+[
+  "env",
+  {
+    "browsers": "last 1 Chrome version",
+    "loose": true,
+    "modules": false,
+    "targets": {
+      "node": "8.0"
+    },
+    "useBuiltIns": true
+  }
+],
+```
 
 ---
 
