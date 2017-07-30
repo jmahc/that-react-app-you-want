@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
@@ -19,7 +19,6 @@
     "clean:all": "del /q dist\\* dll\\* node_modules package-lock.json yarn.lock .yarnclean",
     "clean-dist": "rm -rf ./dist/*",
     "clean:dist": "del /q dist\\*",
-    "clean-dll": "rm -rf ./dll/*",
     "clean-dll": "del /q dll\\*",
     "clean-npm": "rm -rf node_modules package-lock.json",
     "clean:npm": "del /q node_modules package-lock.json",
@@ -104,7 +103,10 @@
     "react-dom": "^15.6.1"
   },
   "main": "src/index.js",
-  "files": ["dist", "dll"],
+  "files": [
+    "dist",
+    "dll"
+  ],
   "browser": {
     "buffer": "none"
   },
