@@ -54,8 +54,6 @@ const developmentConfig = merge([
           includeSourceMap: true
         }
       ),
-      // TODO - this is causing the `babylon` errors!
-      new DashboardPlugin({ port: PORT_NUMBER }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new FriendlyErrorsPlugin()
