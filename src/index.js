@@ -1,7 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import App from './containers/App'
-import './index.css'
+
+import App from '@/containers/App'
+
+import '@/index.css'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const rootElement = document.getElementById('root')
@@ -13,7 +15,7 @@ const renderApplication = ApplicationComponent => {
   } else {
     const AppContainer = require('react-hot-loader').AppContainer
     // Trick babel to avoid hoisting `<AppContainer />`
-    // via `babel-plugin-transform-react-constant-elements`
+    // via `babel-plugin-transform-react-constant-elements`.
     // Found here:
     // ~ https://github.com/LWJGL/lwjgl3-www/
     const noHoist = {}

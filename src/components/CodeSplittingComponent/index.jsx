@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './CodeSplittingComponent.css'
 
 const CodeSplittingComponent = props => {
