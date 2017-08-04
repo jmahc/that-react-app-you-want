@@ -9,21 +9,39 @@
     [
       "env",
       {
-        "browsers": "last 1 Chrome version",
         "loose": true,
         "modules": false,
+        "spec": false,
         "targets": {
-          "node": "8.0"
+          "browsers": ["last 1 chrome versions"]
         },
         "useBuiltIns": true
       }
     ],
     "stage-0",
-    "react",
-    "babili"
+    "react"
   ],
+  "plugins": ["transform-react-constant-elements"],
   "comments": false,
   "env": {
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "loose": true,
+            "modules": false,
+            "spec": false,
+            "targets": {
+              "browsers": ["> 1%", "ie >= 9", "last 2 versions"]
+            },
+            "useBuiltins": true
+          }
+        ],
+        "stage-0",
+        "react"
+      ]
+    },
     "development": {
       "plugins": ["react-hot-loader/babel"]
     }

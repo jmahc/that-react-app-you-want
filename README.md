@@ -66,7 +66,6 @@ Some really cool things:
 - webpack but you can use ES6 syntax
 - chunks
 - jsx
-- babili
 - Code-splitting aka importin' shit on the fly
 - Tree-shaking for money-makers
 - DLL's for faster build times
@@ -91,11 +90,7 @@ Some really cool things:
 
 ### Issues
 
-1. `webpack-dashboard`
-- You will notice some kind of `this.input.charAt()` error when running this application with `webpack-dashboard`.
-- This is an issue since the upgraded Webpack 3.
-- You can do without `webpack-dashboard` and notice that no errors occur.
-- Otherwise, ignore them you pretentious asshole.
+1. None as of now :)
 
 ---
 
@@ -206,24 +201,6 @@ plugins: [
 ...
 ```
 5. For reference, visit the [favicons-webpack-plugin page].
-
----
-
-### Babili
-```javascript
-[
-  "env",
-  {
-    "browsers": "last 1 Chrome version",
-    "loose": true,
-    "modules": false,
-    "targets": {
-      "node": "8.0"
-    },
-    "useBuiltIns": true
-  }
-],
-```
 
 ---
 

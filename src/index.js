@@ -1,22 +1,39 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
 import App from './containers/App'
 import './index.css'
 
-const renderApp = ShowMeMyComponent => {
-  render(
-    <AppContainer>
-      <ShowMeMyComponent />
-    </AppContainer>,
-    document.getElementById('root')
-  )
+const isProduction = process.env.NODE_ENV === 'production'
+const rootElement = document.getElementById('root')
+
+const renderApplication = ApplicationComponent => {
+  // Disregard HMR for production builds.
+  if (isProduction) {
+    render(<ApplicationComponent />, rootElement)
+  } else {
+    const AppContainer = require('react-hot-loader').AppContainer
+    // Trick babel to avoid hoisting `<AppContainer />`
+    // via `babel-plugin-transform-react-constant-elements`
+    // Found here:
+    // ~ https://github.com/LWJGL/lwjgl3-www/
+    const noHoist = {}
+
+    render(
+      <AppContainer {...noHoist}>
+        <ApplicationComponent />
+      </AppContainer>,
+      rootElement
+    )
+  }
 }
 
-renderApp(App)
+// Render the application.
+renderApplication(App)
 
-if (module.hot) {
+if (!isProduction && module.hot) {
   module.hot.accept('./containers/App', () => {
-    renderApp(App)
+    const NewRoot = require('./containers/App').default
+
+    renderApplication(NewRoot)
   })
 }
