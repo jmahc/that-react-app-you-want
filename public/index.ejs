@@ -18,6 +18,7 @@
     <div id="root"></div>
     <!-- Injects the manifest.json file -->
     <%=htmlWebpackPlugin.files.webpackManifest%>
+    <!-- Injects the manifest.[hash].js file -->
     <%=htmlWebpackPlugin.files.manifest%>
   </body>
 </html>

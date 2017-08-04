@@ -31,6 +31,12 @@ const commonsConfig = merge([
             /\.gif$/,
             /\.jpe?g$/,
             /\.png$/,
+            // Add any "extraneous" files to this loader.
+            // e.g.:  If `sass/scss` is used with `sass-loader`,
+            //        be sure to add the following regex:
+            //          /\.(sass|scss)$/
+            //        to prevent a '.sass' file from being generated
+            //        and therefore, excluded from the application.
             /\.ejs$/
           ],
           loader: 'file-loader',

@@ -1,4 +1,6 @@
-// This let's you use es6 with webpack...
+// This let's you use ES6 with `webpack` by negating the `.babelrc` file.
+// NOTE:  the `webpack` files have a "webpack.{name}.babel.js" file naming
+//        convention AND that this file mirrors the `.babelrc` file
 module.exports = {
   babelrc: false,
   presets: [

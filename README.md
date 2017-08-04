@@ -1,14 +1,14 @@
 # that-react-app-you-want
 
-[![Build Status](https://travis-ci.org/jmahc/that-react-app-you-want.svg?branch=master)](https://travis-ci.org/jmahc/that-react-app-you-want)
-[![Dependencies](https://david-dm.org/jmahc/that-react-app-you-want.svg)](https://david-dm.org/jmahc/that-react-app-you-want)
-[![devDependencies Status](https://david-dm.org/jmahc/that-react-app-you-want/dev-status.svg)](https://david-dm.org/jmahc/that-react-app-you-want?type=dev)
+[![Build Status]](https://travis-ci.org/jmahc/that-react-app-you-want)
+[![Dependencies]](https://david-dm.org/jmahc/that-react-app-you-want)
+[![devDependencies Status]](https://david-dm.org/jmahc/that-react-app-you-want?type=dev)
 
-[![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+[![license]](http://opensource.org/licenses/MIT)
+[![All Contributors]](#contributors)
+[![semantic-release]](https://github.com/semantic-release/semantic-release)
 
-[![Watch on GitHub](https://img.shields.io/github/watchers/jmahc/that-react-app-you-want.svg?style=social)](https://github.com/jmahc/that-react-app-you-want/watchers)
+[![Watch on GitHub]](https://github.com/jmahc/that-react-app-you-want/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/jmahc/that-react-app-you-want.svg?style=social)](https://github.com/jmahc/that-react-app-you-want/stargazers)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/jmahc/that-react-app-you-want.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20that-react-app-you-want!%20https://github.com/jmahc/that-react-app-you-want%20%F0%9F%91%8D)
 
@@ -223,14 +223,21 @@ This project follows the [all-contributors] specification. Contributions of any 
 ---
 
   [About the author]: <http://mcardle.tech/>
+  [All Contributors]: <https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square>
   [all-contributors]: <https://github.com/kentcdodds/all-contributors/>
+  [Build Status]: <https://travis-ci.org/jmahc/that-react-app-you-want.svg?branch=master/>
+  [Dependencies]: <https://david-dm.org/jmahc/that-react-app-you-want.svg>
+  [devDependencies Status]: <https://david-dm.org/jmahc/that-react-app-you-want/dev-status.svg>
   [Favicon and Mobile Icon Generation]: <#favicon-and-mobile-icon-generation>
   [favicons-webpack-plugin pageÂ]: <https://github.com/jantimon/favicons-webpack-plugin/>
   [generact]: <https://github.com/diegohaz/generact/>
+  [license]: <https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square>
   [NodeJS]: <https://nodejs.com/>
   [npm]: <https://npmjs.com/>
   [Preload and Prefetch]: <#preload-and-prefetch>
   [preload-webpack-plugin repository]: <https://github.com/googlechrome/preload-webpack-plugin/>
+  [semantic-release]: <https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square>
   [this Medium article]: <https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf/>
+  [Watch on GitHub]: <https://img.shields.io/github/watchers/jmahc/that-react-app-you-want.svg?style=social>
   [webpack]: <https://webpack.js.org/>
   [yarn]: <https://yarnpkg.com/>
