@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
@@ -13,7 +13,7 @@
     "yarn": ">=0.27.5"
   },
   "scripts": {
-    "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack --profile --progress --env production",
+    "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production",
     "build:win": "del /q dist\\* && cross-env NODE_ENV=production webpack --profile --progress --env production",
     "clean-all": "rm -rf ./dist/* ./dll/* node_modules package-lock.json yarn.lock .yarnclean ./**/*.DS_STORE ./.DS_STORE",
     "clean:all": "del /q dist\\* dll\\* node_modules package-lock.json yarn.lock .yarnclean",
@@ -50,10 +50,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.25.0",
-    "babili-webpack-plugin": "^0.1.2",
     "bundle-buddy-webpack-plugin": "^0.3.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "chunk-manifest-webpack-plugin": "^1.1.1",
     "compression-webpack-plugin": "^1.0.0",
     "cross-env": "^5.0.3",
     "css-loader": "^0.28.4",
@@ -69,7 +67,7 @@
     "generact": "^0.2.0",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
-    "inline-manifest-webpack-plugin": "^3.0.1",
+    "inline-chunk-manifest-html-webpack-plugin": "^1.1.1",
     "lint-staged": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^3.0.0",
     "postcss": "^6.0.6",
@@ -123,7 +121,6 @@
   "keywords": [
     "babel",
     "babelJS",
-    "babili",
     "boilerplate",
     "chunk",
     "chunking",
