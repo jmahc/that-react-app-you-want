@@ -1,11 +1,13 @@
 import path from 'path'
 import webpack from 'webpack'
-import BabiliPlugin from 'babili-webpack-plugin'
 
 import PATHS from './paths.babel'
 
+// NOTE: The library and the plugin's filename MUST match.
+const vendorLibraryName = 'vendors_lib'
+
 const vendorConfig = {
-  context: process.cwd(),
+  context: PATHS.root,
   devtool: '#source-map',
   entry: [
     'react',
@@ -15,14 +17,14 @@ const vendorConfig = {
   ],
   output: {
     filename: 'vendors.dll.js',
-    library: 'vendors_lib',
-    path: path.resolve(process.cwd(), 'dll')
+    library: vendorLibraryName,
+    path: PATHS.dll
   },
   plugins: [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DllPlugin({
-      name: 'vendors_lib',
-      path: path.resolve(process.cwd(), 'dll/vendors-manifest.json')
+      name: vendorLibraryName,
+      path: path.resolve(PATHS.root, 'dll/vendors-manifest.json')
     })
   ],
   node: {
