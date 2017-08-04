@@ -2,9 +2,8 @@ import glob from 'glob'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
 
-// import BabiliPlugin from 'babili-webpack-plugin'
 import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
-// import CompressionPlugin from 'compression-webpack-plugin'
+import CompressionPlugin from 'compression-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import PurifyCSSPlugin from 'purifycss-webpack'
@@ -12,10 +11,10 @@ import WebpackChunkHash from 'webpack-chunk-hash'
 
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
-import { extractCSS, setFreeVariable } from './webpack.config.parts.babel'
+import { extractCss, setFreeVariable } from './webpack.config.parts.babel'
 
 const productionConfig = merge([
-  extractCSS({
+  extractCss({
     include: PATHS.app,
     exclude: /node_modules/,
     options: {
@@ -99,20 +98,15 @@ const productionConfig = merge([
         manifestVariable: 'webpackManifest',
         chunkManifestVariable: 'webpackChunkManifest',
         dropAsset: false
+      }),
+      // Gzip files.
+      new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css|html)$/,
+        threshold: 10240,
+        minRatio: 0.8
       })
-      // new ChunkManifestPlugin({
-      //   filename: 'chunk-manifest.json',
-      //   inlineManifest: true,
-      //   manifestVariable: 'webpackManifest'
-      // })
-      // // Gzip files.
-      // new CompressionPlugin({
-      //   asset: '[path].gz[query]',
-      //   algorithm: 'gzip',
-      //   test: /\.(js|css|html)$/,
-      //   threshold: 10240,
-      //   minRatio: 0.8
-      // })
     ]
   },
   setFreeVariable('process.env.NODE_ENV', 'production')

@@ -8,7 +8,7 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
 import stats from './stats.babel'
-import { devServer, loadCSS } from './webpack.config.parts.babel'
+import { devServer, loadCss } from './webpack.config.parts.babel'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const PORT_NUMBER = process.env.PORT_NUMBER
@@ -19,7 +19,7 @@ const developmentConfig = merge([
     publicPath: PATHS.publicPath,
     stats
   }),
-  loadCSS({
+  loadCss({
     include: PATHS.app,
     exclude: /node_modules/,
     options: {

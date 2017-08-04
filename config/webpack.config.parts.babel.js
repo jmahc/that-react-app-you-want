@@ -21,7 +21,7 @@ const devServer = ({ port, publicPath, stats } = {}) => ({
   }
 })
 
-const loadCSS = ({ include, exclude, options } = {}) => ({
+const loadCss = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
       {
@@ -47,7 +47,7 @@ const loadCSS = ({ include, exclude, options } = {}) => ({
   }
 })
 
-const extractCSS = ({ include, exclude, options }) => {
+const extractCss = ({ include, exclude, options }) => {
   const plugin = new ExtractTextPlugin({
     allChunks: true,
     disable: false,
@@ -128,9 +128,9 @@ const setFreeVariable = (key, value) => {
 
 export {
   devServer,
-  extractCSS,
+  extractCss,
   lintJavaScript,
-  loadCSS,
+  loadCss,
   loadJavaScript,
   setFreeVariable
 }
