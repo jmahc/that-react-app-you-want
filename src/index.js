@@ -34,8 +34,8 @@ renderApplication(App)
 
 if (!isProduction && module.hot) {
   module.hot.accept('./containers/App', () => {
-    const NewRoot = require('./containers/App').default
+    const NewApp = require('./containers/App').default
 
-    renderApplication(NewRoot)
+    renderApplication(NewApp)
   })
 }
