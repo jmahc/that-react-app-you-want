@@ -10,9 +10,12 @@ const vendorConfig = {
   context: PATHS.root,
   devtool: '#source-map',
   entry: [
+    // React
     'react',
     'react-dom',
     'prop-types',
+
+    // Libraries
     'promise'
   ],
   output: {

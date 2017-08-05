@@ -2,13 +2,18 @@ import merge from 'webpack-merge'
 import path from 'path'
 import webpack from 'webpack'
 import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin'
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import DashboardPlugin from 'webpack-dashboard/plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
 import stats from './stats.babel'
-import { devServer, loadCss } from './webpack.config.parts.babel'
+import {
+  devServer,
+  loadCss,
+  setFreeVariable
+} from './webpack.config.parts.babel'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const PORT_NUMBER = process.env.PORT_NUMBER
@@ -28,6 +33,10 @@ const developmentConfig = merge([
       }
     }
   }),
+  setFreeVariable(
+    'process.env.NODE_ENV',
+    'development'
+  ),
   {
     // This is where `name` comes into play within the
     // `webpack.config.vendor.babel.js` file.
@@ -37,6 +46,7 @@ const developmentConfig = merge([
       chunkFilename: '[id].chunk.js',
       filename: '[name].js',
       path: PATHS.build,
+      pathinfo: true,
       publicPath: PATHS.publicPath
     },
     plugins: [
@@ -48,16 +58,18 @@ const developmentConfig = merge([
         context: PATHS.root,
         manifest: PATHS.vendorManifest
       }),
-      new AddAssetHtmlPlugin(
-        {
-          filepath: PATHS.vendorFilepath,
-          includeSourceMap: true
-        }
-      ),
+      new AddAssetHtmlPlugin({
+        filepath: PATHS.vendorFilepath,
+        includeSourceMap: true
+      }),
+      new CaseSensitivePathsPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new FriendlyErrorsPlugin()
-    ]
+    ],
+    performance: {
+      hints: false
+    }
   }
 ])
 

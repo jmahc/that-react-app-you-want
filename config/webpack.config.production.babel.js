@@ -23,6 +23,7 @@ const productionConfig = merge([
       }
     }
   }),
+  setFreeVariable('process.env.NODE_ENV', 'production'),
   {
     devtool: 'source-map',
     output: {
@@ -43,21 +44,30 @@ const productionConfig = merge([
         include: 'asyncChunks'
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
+      // Remove unused CSS.
       new PurifyCSSPlugin({
         minimize: false,
         moduleExtensions: ['.html'],
         paths: glob.sync(`${PATHS.app}/**/*.jsx`),
         purifyOptions: {
           info: true,
+          minify: true,
+          output: false,
           rejected: true
+          // Using a third-party library?
+          // Whitelist it here if all the classnames
+          // start with the same prefix
+          // , whitelist: ['*thirdPartyPrefix*']
         },
         styleExtensions: ['.css']
       }),
+      // Further CSS optimizations.
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true
         }
       }),
+      // Identify the application's "chunks".
       new webpack.optimize.CommonsChunkPlugin({
         async: true,
         children: true,
@@ -90,9 +100,11 @@ const productionConfig = merge([
       }),
       // Keeps the same [chunkhashes] for vendor and manifest files...
       new webpack.HashedModuleIdsPlugin(),
+      // Specify the chunk/hashing algorithm with 'md5' as the default.
       new WebpackChunkHash({
         algorithm: 'md5'
       }),
+      // Inline the chunk manifest alongside 'html-webpack-plugin'.
       new InlineChunkManifestHtmlWebpackPlugin({
         filename: 'manifest.json',
         manifestVariable: 'webpackManifest',
@@ -108,8 +120,7 @@ const productionConfig = merge([
         minRatio: 0.8
       })
     ]
-  },
-  setFreeVariable('process.env.NODE_ENV', 'production')
+  }
 ])
 
 export default productionConfig

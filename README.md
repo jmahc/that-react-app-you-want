@@ -9,8 +9,8 @@
 [![semantic-release]](https://github.com/semantic-release/semantic-release)
 
 [![Watch on GitHub]](https://github.com/jmahc/that-react-app-you-want/watchers)
-[![Star on GitHub](https://img.shields.io/github/stars/jmahc/that-react-app-you-want.svg?style=social)](https://github.com/jmahc/that-react-app-you-want/stargazers)
-[![Tweet](https://img.shields.io/twitter/url/https/github.com/jmahc/that-react-app-you-want.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20that-react-app-you-want!%20https://github.com/jmahc/that-react-app-you-want%20%F0%9F%91%8D)
+[![Star on GitHub]](https://github.com/jmahc/that-react-app-you-want/stargazers)
+[![Tweet]](https://twitter.com/intent/tweet?text=Check%20out%20that-react-app-you-want!%20https://github.com/jmahc/that-react-app-you-want%20%F0%9F%91%8D)
 
 **Yeah, this is it.**
 
@@ -24,6 +24,14 @@ You can have it.
 
 ---
 
+## Pick your poison
+You even have options to decide what you want to use!
+
+- The [master branch] branch contains a simple react application.
+- The [redux branch] branch implements [redux] alongside the simple react application.
+
+---
+
 ## What do you want to see from this?
 Please fill free to open a card, or shoot me an email (found in the `package.json` file) with tips, ideas and improvements!.
 
@@ -32,29 +40,44 @@ Hopefully you guys are enjoying it!
 ---
 
 ## Getting started
-For you [yarn] losers:
-1. `yarn` - install dependencies.
-2. `yarn run dev-vendor` - **for quicker development builds** due to the DLL's generated.
+What do you need? Linux/macOS or a Windows machine and [yarn].
+
+### Linux & macOS Instructions
+Steps for you [yarn] losers:
+1. `yarn` - Install the dependencies.
+2. `yarn run dev-vendor` - Required and allows **for quicker development builds** due to the DLL's generated.
 3. `yarn run start` or `yarn run dev` - start development server.
 4. `yarn run build` - build for production.
 
-For you [npm] nerds:
-1. `npm i` - install dependencies.
-2. `npm run dev-vendor` - **for quicker development builds** due to the DLL's generated.
-3. `npm run start` or `npm run dev` - start development server.
-4. `npm run build` - build for production.
+**OPTIONAL**
+- `yarn run clean-all` - Removes any production-built files, DLL files, installed dependencies and any `lock` files.
+- `yarn run clean-dist` - Removes any production-built files.
+- `yarn run clean-dll` - Removes any DLL files.
+- `yarn run clean-yarn` - Removes any [yarn]-specific files, including dependencies.
 
-*NOTE*: Got a good request to update these commands to be eligible for Windows, macOS and Linux.
-Now, you will see a script command with `-` for macOS or Linux and a script command with `:` for Windows.
+---
 
-Hope that helps!
+### Windows Instructions
+Steps for you [yarn] losers:
+1. `yarn` - Install the dependencies.
+2. `yarn run dev:vendor` - Required and allows **for quicker development builds** due to the DLL's generated.
+3. `yarn run start` or `yarn run dev` - Starts the development server.
+4. `yarn run build:win` - Builds the application for production.
+
+**OPTIONAL**
+- `yarn run clean:all` - Removes any production-built files, DLL files, installed dependencies and any `lock` files.
+- `yarn run clean:dist` - Removes any production-built files.
+- `yarn run clean:dll` - Removes any DLL files.
+- `yarn run clean:yarn` - Removes any [yarn]-specific files, including dependencies.
 
 ---
 
 ## That engine version shit for you semantic manics
-- [NodeJS] with: >=8.0.0
-- [npm] with: >=5.0.0
-- [yarn] with: >=0.27.5
+This is what I use.  Feel free to change `.node-version`, `.nvmrc` and the `package.json` file's engines to suit your needs.
+
+- [NodeJS] with: `>=8.0.0`
+- [npm] with: `>=5.0.0`
+- [yarn] with: `>=0.27.5`
 
 ---
 
@@ -81,21 +104,21 @@ Some really cool things:
 ---
 
 ## Todos
-1. Implement testing
-2. Add an optional `redux` branch.
-3. Add an optional `react-router v4` branch.
-4. Add an optional authentication process.
+- Implement testing
+- Add an optional `redux` branch. *in progress as of August 4, 2017*
+- Add an optional `react-router v4` branch.
+- Add an optional authentication process.
 
 ---
 
 ### Issues
 
-1. None as of now :)
+- None as of now :)
 
 ---
 
 ### Open Graph
-Open Graph meta tags were added in the `public/index.js` file for your SEO needs.  Customize them inside the `html-webpack-plugin` instance located in the `config/webpack.config.commons.babel.js` file, within the `seo` object!
+[Open Graph] meta tags were added in the `public/index.js` file for your SEO needs.  Customize them inside the `html-webpack-plugin` instance located in the `config/webpack.config.commons.babel.js` file, within the `seo` object!
 
 ---
 
@@ -232,12 +255,18 @@ This project follows the [all-contributors] specification. Contributions of any 
   [favicons-webpack-plugin pageÂ]: <https://github.com/jantimon/favicons-webpack-plugin/>
   [generact]: <https://github.com/diegohaz/generact/>
   [license]: <https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square>
+  [master branch]: <https://github.com/jmahc/that-react-app-you-want/>
   [NodeJS]: <https://nodejs.com/>
   [npm]: <https://npmjs.com/>
+  [Open Graph]: <http://ogp.me/>
   [Preload and Prefetch]: <#preload-and-prefetch>
   [preload-webpack-plugin repository]: <https://github.com/googlechrome/preload-webpack-plugin/>
+  [redux]: <http://redux.js.org/>
+  [redux branch]: <https://github.com/jmahc/that-react-app-you-want/tree/redux/>
   [semantic-release]: <https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square>
+  [Star on GitHub]: <https://img.shields.io/github/stars/jmahc/that-react-app-you-want.svg?style=social>
   [this Medium article]: <https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf/>
+  [Tweet]: <https://img.shields.io/twitter/url/https/github.com/jmahc/that-react-app-you-want.svg?style=social>
   [Watch on GitHub]: <https://img.shields.io/github/watchers/jmahc/that-react-app-you-want.svg?style=social>
   [webpack]: <https://webpack.js.org/>
   [yarn]: <https://yarnpkg.com/>
