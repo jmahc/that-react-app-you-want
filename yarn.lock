@@ -7319,9 +7319,9 @@ webpack@^2.3.2:
     webpack-sources "^1.0.1"
     yargs "^6.0.0"
 
-webpack@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.4.1.tgz#4c3f4f3fb318155a4db0cb6a36ff05c5697418f4"
+webpack@^3.5.0:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.1.tgz#b749ee3d2b5a118dad53e8e41585b3f71e75499a"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
@@ -7404,9 +7404,9 @@ wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
-"workerpool@git+https://github.com/FormidableLabs/workerpool.git#71d4e17":
+"workerpool@https://github.com/FormidableLabs/workerpool#71d4e17":
   version "2.2.0"
-  resolved "git+https://github.com/FormidableLabs/workerpool.git#71d4e17"
+  resolved "https://github.com/FormidableLabs/workerpool#71d4e17"
   dependencies:
     object-assign "^4.1.1"
 

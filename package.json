@@ -6,7 +6,7 @@
     "email": "jordan@mcardle.tech",
     "url": "https://github.com/jmahc/"
   },
-  "description": "That react app you always wanted: webpack@3.4.1, react, postCSS, purifycss, dll's and code splitting examples.  That includes prefetching. Highly opinionated but you better like it.",
+  "description": "That react app you always wanted: webpack@3.5.0, react, postCSS, purifycss, dll's and code splitting examples.  That includes prefetching. Highly opinionated but you better like it.",
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=5.0.0",
@@ -81,7 +81,7 @@
     "standard-version": "^4.2.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.4.1",
+    "webpack": "^3.5.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-chunk-hash": "^0.4.0",
     "webpack-dashboard": "^1.0.0-2",
@@ -97,10 +97,7 @@
     "react-dom": "^15.6.1"
   },
   "main": "src/index.js",
-  "files": [
-    "dist",
-    "dll"
-  ],
+  "files": ["dist", "dll"],
   "browser": {
     "buffer": "none"
   },
@@ -157,6 +154,7 @@
     "webpack@3.3.0",
     "webpack@3.4.0",
     "webpack@3.4.1",
+    "webpack@3.5.0",
     "yarn"
   ]
 }

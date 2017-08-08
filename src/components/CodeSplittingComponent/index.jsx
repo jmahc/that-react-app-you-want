@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import './CodeSplittingComponent.css'
@@ -10,6 +11,10 @@ const CodeSplittingComponent = props => {
       </button>
     </div>
   )
+}
+
+CodeSplittingComponent.propTypes = {
+  lazyTest: PropTypes.string
 }
 
 export default CodeSplittingComponent
