@@ -3,7 +3,6 @@ import path from 'path'
 import webpack from 'webpack'
 import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
-import DashboardPlugin from 'webpack-dashboard/plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 
 import isVendor from './isVendor.babel'

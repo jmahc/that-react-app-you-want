@@ -84,7 +84,7 @@ This is what I use.  Feel free to change `.node-version`, `.nvmrc` and the `pack
 ## What is inside, though?
 Some really cool things:
 
-- `webpack v3.5.3`
+- `webpack v3.5.5`
 - prettier formatting
 - webpack but you can use ES6 syntax
 - chunks
