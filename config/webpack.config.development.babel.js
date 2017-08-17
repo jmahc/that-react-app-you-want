@@ -68,6 +68,8 @@ const developmentConfig = merge([
       new FriendlyErrorsPlugin()
       // OPTIONAL - use this with:
       // https://github.com/FormidableLabs/electron-webpack-dashboard
+      // Uncomment the import (top of this file) and ignore the
+      // `this.input.charCodeAt` error.
       // , new DashboardPlugin()
     ],
     performance: {
