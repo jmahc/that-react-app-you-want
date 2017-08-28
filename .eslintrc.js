@@ -94,10 +94,10 @@ const options = {
       {
         singleQuote: true,
         semi: false,
-        trailingComma: 'none', // none, es5, all
+        trailingComma: 'none',
+        // none, es5, all
         bracketSpacing: true,
         jsxBracketSameLine: false
-        // parser: 'flow'
       }
     ],
     // http://eslint.org/docs/rules/
@@ -251,6 +251,9 @@ const options = {
     'react/react-in-jsx-scope': 'error',
     'react/require-render-return': 'error',
     'react/style-prop-object': 'warn',
+
+    // // http://eslint.org/docs/rules/jsx-quotes
+    // 'jsx-quotes': ['error', 'prefer-single'],
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
     'jsx-a11y/accessible-emoji': 'warn',
