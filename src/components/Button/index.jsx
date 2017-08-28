@@ -30,15 +30,15 @@ class Button extends Component {
     // Using `this.Component`, if it exists, which is untrue on initialization,
     // return the object's default value (the component itself).
     // Other wise, load the button that will be replaced!
-    return this && this.Component && this.Component.default
-      ? <this.Component.default
-          lazyText={this.CodeSplittingComponentPropsText}
-        />
-      : <div>
-          <button className="Button-big" onClick={() => this.handleOnClick()}>
-            Click here to code split, yo!
-          </button>
-        </div>
+    return this && this.Component && this.Component.default ? (
+      <this.Component.default lazyText={this.CodeSplittingComponentPropsText} />
+    ) : (
+      <div>
+        <button className="Button-big" onClick={() => this.handleOnClick()}>
+          Click here to code split, yo!
+        </button>
+      </div>
+    )
   }
 }
 
