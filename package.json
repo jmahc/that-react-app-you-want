@@ -1,15 +1,17 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
     "url": "https://github.com/jmahc/"
   },
-  "description":
-    "That react app you always wanted: webpack@3.5.5, react, postCSS, purifycss, dll's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
+  "description": "That react app you always wanted: webpack@3.5.5, react, postCSS, purifycss, dll's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
   "main": "src/index.js",
-  "files": ["dist", "dll"],
+  "files": [
+    "dist",
+    "dll"
+  ],
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
   "engines": {
     "node": ">=8.0.0",
@@ -17,12 +19,9 @@
     "yarn": ">=0.27.5"
   },
   "scripts": {
-    "build":
-      "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "build:win":
-      "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean-all":
-      "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean ./**/*.DS_STORE ./.DS_STORE",
+    "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "build:win": "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "clean-all": "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean ./**/*.DS_STORE ./.DS_STORE",
     "clean:all": "del /q dist\\* dll\\* node_modules yarn.lock .yarnclean",
     "clean-dist": "rm -rf ./dist/*",
     "clean:dist": "del /q dist\\*",
@@ -30,17 +29,13 @@
     "clean-yarn": "rm -rf node_modules yarn.lock .yarnclean",
     "clean:yarn": "del /q node_modules yarn.lock .yarnclean",
     "dev": "yarn run start",
-    "dev-vendor":
-      "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "dev:vendor":
-      "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "format":
-      "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
+    "dev-vendor": "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "dev:vendor": "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "format": "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
     "postmerge": "yarn",
     "precommit": "lint-staged",
     "release": "standard-version",
-    "start":
-      "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
+    "start": "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
     "webpack-defaults": "webpack-defaults"
   },
   "devDependencies": {
@@ -110,8 +105,14 @@
   },
   "lint-staged": {
     "linters": {
-      "src/**/*.js": ["prettier-standard", "git add"],
-      "src/**/*.jsx": ["prettier-standard", "git add"]
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "src/**/*.jsx": [
+        "prettier-standard",
+        "git add"
+      ]
     }
   },
   "repository": {
