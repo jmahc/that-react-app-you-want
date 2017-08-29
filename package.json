@@ -6,7 +6,8 @@
     "email": "jordan@mcardle.tech",
     "url": "https://github.com/jmahc/"
   },
-  "description": "That react app you always wanted: webpack@3.5.5, react, postCSS, purifycss, dll's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
+  "description":
+    "That react app you always wanted: webpack@3.5.5, react, postCSS, purifycss, dll's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
   "main": "src/index.js",
   "files": ["dist", "dll"],
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
@@ -16,9 +17,12 @@
     "yarn": ">=0.27.5"
   },
   "scripts": {
-    "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "build:win": "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean-all": "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean ./**/*.DS_STORE ./.DS_STORE",
+    "build":
+      "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "build:win":
+      "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "clean-all":
+      "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean ./**/*.DS_STORE ./.DS_STORE",
     "clean:all": "del /q dist\\* dll\\* node_modules yarn.lock .yarnclean",
     "clean-dist": "rm -rf ./dist/*",
     "clean:dist": "del /q dist\\*",
@@ -26,17 +30,21 @@
     "clean-yarn": "rm -rf node_modules yarn.lock .yarnclean",
     "clean:yarn": "del /q node_modules yarn.lock .yarnclean",
     "dev": "yarn run start",
-    "dev-vendor": "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "dev:vendor": "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "format": "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
+    "dev-vendor":
+      "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "dev:vendor":
+      "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "format":
+      "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
     "postmerge": "yarn",
     "precommit": "lint-staged",
     "release": "standard-version",
-    "start": "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
+    "start":
+      "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
     "webpack-defaults": "webpack-defaults"
   },
   "devDependencies": {
-    "add-asset-html-webpack-plugin": "^2.1.0",
+    "add-asset-html-webpack-plugin": "^2.1.1",
     "autoprefixer": "^7.1.3",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -53,12 +61,13 @@
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "compression-webpack-plugin": "^1.0.0",
     "cross-env": "^5.0.5",
+    "cross-spawn": "^5.1.0",
     "css-loader": "^0.28.5",
     "eslint": "^4.5.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -88,7 +97,6 @@
     "webpack": "^3.5.5",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-chunk-hash": "^0.4.0",
-    "webpack-dashboard": "^1.0.0-5",
     "webpack-dev-server": "^2.7.1",
     "webpack-manifest-plugin": "^1.3.0",
     "webpack-merge": "^4.1.0"
@@ -105,9 +113,6 @@
       "src/**/*.js": ["prettier-standard", "git add"],
       "src/**/*.jsx": ["prettier-standard", "git add"]
     }
-  },
-  "browser": {
-    "buffer": "none"
   },
   "repository": {
     "type": "git",

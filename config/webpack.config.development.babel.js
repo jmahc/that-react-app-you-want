@@ -3,7 +3,7 @@ import path from 'path'
 import webpack from 'webpack'
 import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
-import DashboardPlugin from 'webpack-dashboard/plugin'
+
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 
 import isVendor from './isVendor.babel'
@@ -70,7 +70,7 @@ const developmentConfig = merge([
       // https://github.com/FormidableLabs/electron-webpack-dashboard
       // Uncomment the import (top of this file) and ignore the
       // `this.input.charCodeAt` error.
-      , new DashboardPlugin()
+      // , new DashboardPlugin()
     ],
     performance: {
       hints: false
