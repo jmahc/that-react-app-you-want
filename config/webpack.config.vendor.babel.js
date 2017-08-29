@@ -1,8 +1,8 @@
-import path from 'path'
 import webpack from 'webpack'
 
 import PATHS from './paths.babel'
 
+const vendorFileName = 'vendors.dll.js'
 // NOTE: The library and the plugin's filename MUST match.
 const vendorLibraryName = 'vendors_lib'
 
@@ -19,7 +19,7 @@ const vendorConfig = {
     'promise'
   ],
   output: {
-    filename: 'vendors.dll.js',
+    filename: vendorFileName,
     library: vendorLibraryName,
     path: PATHS.dll
   },
@@ -27,7 +27,7 @@ const vendorConfig = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DllPlugin({
       name: vendorLibraryName,
-      path: path.resolve(PATHS.root, 'dll/vendors-manifest.json')
+      path: PATHS.vendorManifest
     })
   ],
   node: {
