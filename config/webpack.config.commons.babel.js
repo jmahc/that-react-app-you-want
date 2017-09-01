@@ -14,10 +14,7 @@ const commonsConfig = merge([
     bail: true,
     context: PATHS.app,
     entry: {
-      app: [
-        isProduction ? PATHS.polyfills : 'react-hot-loader/patch',
-        PATHS.app
-      ]
+      app: [isProduction ? PATHS.polyfills : 'react-hot-loader/patch', PATHS.app]
     },
     module: {
       rules: [
@@ -89,9 +86,17 @@ const commonsConfig = merge([
       alias: {
         '@': PATHS.app
       },
+      aliasFiekds: ['browser'],
       descriptionFiles: ['package.json'],
       enforceExtension: false,
-      extensions: ['.js', '.jsx', '.json']
+      enforceModuleExtension: false,
+      extensions: ['.js', '.jsx', '.json'],
+      mainFields: ['browser', 'module', 'main'],
+      mainFiles: ['index'],
+      modules: [PATHS.app, 'node_modules'],
+      symlinks: true
+      // Investigate plugins:
+      // https://www.npmjs.com/package/directory-named-webpack-plugin
     },
     stats,
     node: {
