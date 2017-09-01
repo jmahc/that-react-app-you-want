@@ -80,6 +80,8 @@ const commonsConfig = merge([
         template: PATHS.indexHtml,
         title: 'That react app you want'
       }),
+      // New ways for minification
+      // https://webpack.js.org/guides/production/#minification
       new webpack.NamedModulesPlugin()
     ],
     resolve: {

@@ -98,6 +98,8 @@ const productionConfig = merge([
         sourceMap: true,
         comments: false
       }),
+      // Alternative for JavaScript minification
+      // https://webpack.js.org/guides/production/#minification
       // Keeps the same [chunkhashes] for vendor and manifest files...
       new webpack.HashedModuleIdsPlugin(),
       // Specify the chunk/hashing algorithm with 'md5' as the default.
