@@ -86,7 +86,7 @@ const commonsConfig = merge([
       alias: {
         '@': PATHS.app
       },
-      aliasFiekds: ['browser'],
+      aliasFields: ['browser'],
       descriptionFiles: ['package.json'],
       enforceExtension: false,
       enforceModuleExtension: false,

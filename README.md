@@ -77,14 +77,14 @@ This is what I use.  Feel free to change `.node-version`, `.nvmrc` and the `pack
 
 - [NodeJS] with: `>=8.0.0`
 - [npm] with: `>=5.0.0`
-- [yarn] with: `>=0.27.5`
+- [yarn] with: `>=1.0.0`
 
 ---
 
 ## What is inside, though?
 Some really cool things:
 
-- `webpack v3.5.5`
+- `webpack v3.6.0`
 - prettier formatting
 - webpack but you can use ES6 syntax
 - chunks

@@ -10,12 +10,14 @@ class Button extends Component {
   }
   handleOnClick() {
     // Import (lazy-load) the "lazy" text from the component file.
+    // prettier-ignore
     import('@/components/CodeSplittingComponent/lazyText' /* webpackChunkName: "LazyText" */)
       .then(lazyTextResponse => {
         this.CodeSplittingComponentPropsText = lazyTextResponse.default
       })
       .then(() => {
-        // Once imported, pass the "lazy" text as a prop to the `CodeSplittingComponent`
+        // Once imported, pass the "lazy" text as a prop to the `CodeSplittingComponent`.
+        // prettier-ignore
         import('@/components/CodeSplittingComponent' /* webpackChunkName: "CodeSplittingComponent" */).then(
           CodeSplittingComponent => {
             // Assign `this.Component` to the component that was lazily loaded.
@@ -27,9 +29,11 @@ class Button extends Component {
   }
 
   render() {
-    // Using `this.Component`, if it exists, which is untrue on initialization,
-    // return the object's default value (the component itself).
-    // Other wise, load the button that will be replaced!
+    /*
+      - Using `this.Component`, if it exists, which is untrue on initialization,
+        return the object's default value (the component itself).
+      - Otherwise, load the button that will be replaced!
+     */
     return this && this.Component && this.Component.default ? (
       <this.Component.default lazyText={this.CodeSplittingComponentPropsText} />
     ) : (

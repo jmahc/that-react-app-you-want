@@ -13,7 +13,7 @@
         "modules": false,
         "spec": false,
         "targets": {
-          "browsers": ["last 1 chrome versions"]
+          "browsers": ["> 1%", "ie >= 9", "last 2 versions"]
         },
         "useBuiltIns": true
       }

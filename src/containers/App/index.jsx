@@ -3,8 +3,11 @@ import React, { Component } from 'react'
 import Button from '@/components/Button'
 import Icon from '@/components/Icon'
 
-// Uncommenting this will break the linter, however, if you do include it,
-// you will notice that, when building, purifycss removes any unused CSS.
+/*
+  - Uncommenting the line below will break the linter.
+  - However, if you do include it, you will notice that when building,
+    `purifycss` removes any unused CSS.
+ */
 // import PurifiedCss from '@/containers/PurifiedCss'
 import './App.css'
 
