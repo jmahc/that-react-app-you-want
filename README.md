@@ -22,6 +22,8 @@ Right here.
 
 You can have it.
 
+Now featuring **react@16.0.0**.
+
 ---
 
 ## Pick your poison
