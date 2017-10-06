@@ -1,6 +1,6 @@
 # that-react-app-you-want
 
-[![Build Status]](https://travis-ci.org/jmahc/that-react-app-you-want)
+[![Build Status]](https://travis-ci.org/jmahc/that-react-app-you-want.svg?branch=master)
 [![Dependencies]](https://david-dm.org/jmahc/that-react-app-you-want)
 [![devDependencies Status]](https://david-dm.org/jmahc/that-react-app-you-want?type=dev)
 
