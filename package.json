@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
@@ -8,7 +8,10 @@
   },
   "description": "That react app you always wanted: webpack@3.6.0, react@16.0.0, postCSS, purifycss, DLL's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
   "main": "src/index.js",
-  "files": ["dist", "dll"],
+  "files": [
+    "dist",
+    "dll"
+  ],
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
   "engines": {
     "node": ">=8.0.0",
@@ -16,12 +19,9 @@
     "yarn": ">=1.0.0"
   },
   "scripts": {
-    "build":
-      "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "build:win":
-      "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean":
-      "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean yarn-error.log ./**/*.DS_STORE ./.DS_STORE",
+    "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "build:win": "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "clean": "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean yarn-error.log ./**/*.DS_STORE ./.DS_STORE",
     "clean-all": "yarn run clean",
     "clean:all": "del /q dist\\* dll\\* node_modules yarn.lock .yarnclean",
     "clean-dist": "rm -rf ./dist/*",
@@ -30,17 +30,14 @@
     "clean-yarn": "rm -rf node_modules yarn.lock .yarnclean",
     "clean:yarn": "del /q node_modules yarn.lock .yarnclean",
     "dev": "yarn run start",
-    "dev-vendor":
-      "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "dev:vendor":
-      "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "dev-vendor": "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+    "dev:vendor": "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "format": "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
     "postmerge": "yarn",
     "postinstall": "# TODO clear the persistent caching with the `cache-loader`",
     "precommit": "lint-staged",
     "release": "standard-version",
-    "start":
-      "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
+    "start": "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
     "webpack-defaults": "webpack-defaults"
   },
   "devDependencies": {
@@ -70,7 +67,7 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^1.1.4",
+    "file-loader": "^1.1.5",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "generact": "^0.3.1",
     "html-webpack-plugin": "^2.30.1",
@@ -97,21 +94,27 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-chunk-hash": "^0.4.0",
-    "webpack-dev-server": "^2.8.2",
+    "webpack-dev-server": "^2.9.1",
     "webpack-manifest-plugin": "^1.3.2",
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "normalize.css": "^7.0.0",
     "promise": "^8.0.1",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "lint-staged": {
     "linters": {
-      "src/**/*.js": ["prettier-standard", "git add"],
-      "src/**/*.jsx": ["prettier-standard", "git add"]
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ],
+      "src/**/*.jsx": [
+        "prettier-standard",
+        "git add"
+      ]
     }
   },
   "repository": {
