@@ -1,12 +1,12 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
     "url": "https://github.com/jmahc/"
   },
-  "description": "That react app you always wanted: webpack@3.6.0, react@16.0.0, postCSS, purifycss, DLL's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
+  "description": "That react app you always wanted: webpack@3.7.0, react@16.0.0, postCSS, purifycss, DLL's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
   "main": "src/index.js",
   "files": [
     "dist",
@@ -85,7 +85,7 @@
     "prettier-standard": "^7.0.1",
     "purify-css": "^1.2.6",
     "purifycss-webpack": "^0.7.0",
-    "react-hot-loader": "^3.0.0-beta.7",
+    "react-hot-loader": "^3.0.0",
     "redbox-react": "^1.5.0",
     "rimraf": "^2.6.2",
     "standard-version": "^4.2.0",
@@ -178,6 +178,7 @@
     "webpack@3.5.4",
     "webpack@3.5.5",
     "webpack@3.6.0",
+    "webpack@3.7.0",
     "yarn"
   ]
 }
