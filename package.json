@@ -6,7 +6,7 @@
     "email": "jordan@mcardle.tech",
     "url": "https://github.com/jmahc/"
   },
-  "description": "That react app you always wanted: webpack@3.7.0, react@16.0.0, postCSS, purifycss, DLL's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
+  "description": "That react app you always wanted: webpack@3.8.0, react@16.0.0, postCSS, purifycss, DLL's and code splitting examples. That includes prefetching. Highly opinionated but you better like it.",
   "main": "src/index.js",
   "files": [
     "dist",
@@ -91,7 +91,7 @@
     "standard-version": "^4.2.0",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
-    "webpack": "^3.6.0",
+    "webpack": "^3.8.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-chunk-hash": "^0.4.0",
     "webpack-dev-server": "^2.9.1",
@@ -179,6 +179,7 @@
     "webpack@3.5.5",
     "webpack@3.6.0",
     "webpack@3.7.0",
+    "webpack@3.8.0",
     "yarn"
   ]
 }
