@@ -14,8 +14,10 @@
 
 # npmjs.com
 npm-debug.log*
+package-lock.json
 
 # yarnpkg.com
+yarn.lock
 yarn-debug.log*
 yarn-error.log*
 .yarnclean
