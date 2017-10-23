@@ -14,9 +14,9 @@
   ],
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
   "engines": {
-    "node": ">=6.0.0",
-    "npm": ">=3.0.0",
-    "yarn": ">=1.0.0"
+    "node": "6.0.0",
+    "npm": "3.0.0",
+    "yarn": "1.0.0"
   },
   "scripts": {
     "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
