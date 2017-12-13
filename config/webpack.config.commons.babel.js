@@ -14,7 +14,10 @@ const commonsConfig = merge([
     bail: true,
     context: PATHS.app,
     entry: {
-      app: [isProduction ? PATHS.polyfills : 'react-hot-loader/patch', PATHS.app]
+      app: [
+        isProduction ? PATHS.polyfills : 'react-hot-loader/patch',
+        PATHS.app
+      ]
     },
     module: {
       rules: [
@@ -84,7 +87,8 @@ const commonsConfig = merge([
     ],
     resolve: {
       alias: {
-        '@': PATHS.app
+        '@': PATHS.app,
+        '%': PATHS.packageJson
       },
       aliasFields: ['browser'],
       descriptionFiles: ['package.json'],

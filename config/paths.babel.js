@@ -16,6 +16,7 @@ const PATHS = {
   // image: resolvePath('public/my-image.png'),
   indexHtml: resolvePath('public/index.ejs'),
   nodeModules: resolvePath('node_modules'),
+  packageJson: resolvePath('package.json'),
   polyfills: resolvePath('config/polyfills'),
   postCSS: resolvePath('config/postcss.config.js'),
   publicPath: isProduction ? './' : '/',
