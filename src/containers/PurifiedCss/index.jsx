@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import './PurifiedCss.css'
+import './styles.css'
 
 class PurifiedCss extends PureComponent {
   render() {

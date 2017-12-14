@@ -2,7 +2,7 @@ import React from 'react'
 
 import logo from './logo.svg'
 
-import './Icon.css'
+import './styles.css'
 
 const Icon = () => <img src={logo} className="Icon-logo" alt="logo" />
 

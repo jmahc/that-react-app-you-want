@@ -11,7 +11,7 @@ import WebpackChunkHash from 'webpack-chunk-hash'
 
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
-import { extractCss, setFreeVariable } from './webpack.config.parts.babel'
+import { extractCss } from './webpack.config.parts.babel'
 
 const productionConfig = merge([
   extractCss({
@@ -23,7 +23,6 @@ const productionConfig = merge([
       }
     }
   }),
-  setFreeVariable('process.env.NODE_ENV', 'production'),
   {
     devtool: 'source-map',
     output: {

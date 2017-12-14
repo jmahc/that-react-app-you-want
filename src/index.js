@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 import App from '@/containers/App'
 
-import '@/index.css'
+import './styles.css'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const rootElement = document.getElementById('root')

@@ -9,7 +9,8 @@ import Icon from '@/components/Icon'
     `purifycss` removes any unused CSS.
  */
 // import PurifiedCss from '@/containers/PurifiedCss'
-import './App.css'
+
+import './styles.css'
 
 class App extends Component {
   render() {

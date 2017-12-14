@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import './CodeSplittingComponent.css'
+import './styles.css'
 
 const CodeSplittingComponent = props => {
   return (

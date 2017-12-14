@@ -3,13 +3,17 @@ import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import { lintJavaScript, loadJavaScript } from './webpack.config.parts.babel'
+import { lintJavaScript, loadJavaScript, setFreeVariable } from './webpack.config.parts.babel'
 import PATHS from './paths.babel'
 import stats from './stats.babel'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
 const commonsConfig = merge([
+  setFreeVariable(
+    'process.env.NODE_ENV',
+    isProduction ? 'production' : 'development'
+  ),
   {
     bail: true,
     context: PATHS.app,

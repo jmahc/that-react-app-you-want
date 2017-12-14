@@ -9,11 +9,7 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import isVendor from './isVendor.babel'
 import PATHS from './paths.babel'
 import stats from './stats.babel'
-import {
-  devServer,
-  loadCss,
-  setFreeVariable
-} from './webpack.config.parts.babel'
+import { devServer, loadCss } from './webpack.config.parts.babel'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const PORT_NUMBER = process.env.PORT_NUMBER
@@ -33,10 +29,6 @@ const developmentConfig = merge([
       }
     }
   }),
-  setFreeVariable(
-    'process.env.NODE_ENV',
-    'development'
-  ),
   {
     // This is where `name` comes into play within the
     // `webpack.config.vendor.babel.js` file.
