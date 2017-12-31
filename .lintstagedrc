@@ -1,7 +1,6 @@
 {
   "linters": {
     "src/**/*.js": ["prettier-standard", "git add"],
-    "src/**/*.jsx": ["prettier-standard", "git add"],
     "config/**/*.js": ["prettier-standard", "git add"]
   }
 }
