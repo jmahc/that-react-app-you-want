@@ -3,7 +3,11 @@ import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import { lintJavaScript, loadJavaScript, setFreeVariable } from './webpack.config.parts.babel'
+import {
+  lintJavaScript,
+  loadJavaScript,
+  setFreeVariable
+} from './webpack.config.parts.babel'
 import PATHS from './paths.babel'
 import stats from './stats.babel'
 
@@ -28,7 +32,8 @@ const commonsConfig = merge([
         {
           exclude: [
             /\.html$/,
-            /\.(js|jsx)$/,
+            // Switching to .js only @ 12.29.2017
+            /\.js$/, // /\.(js|jsx)$/,
             /\.css$/,
             /\.json$/,
             /\.bmp$/,

@@ -47,7 +47,7 @@ const productionConfig = merge([
       new PurifyCSSPlugin({
         minimize: false,
         moduleExtensions: ['.html'],
-        paths: glob.sync(`${PATHS.app}/**/*.jsx`),
+        paths: glob.sync(`${PATHS.app}/**/*.js`), // glob.sync(`${PATHS.app}/**/*.jsx`),
         purifyOptions: {
           info: true,
           minify: true,

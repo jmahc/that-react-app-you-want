@@ -34,10 +34,10 @@
       "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "dev:win":
       "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "format":
-      "prettier-standard 'src/**/*.js' && prettier-standard 'src/**/*.jsx'",
+    "format": "prettier-standard 'src/**/*.js'",
     "postmerge": "yarn",
-    "postinstall": "# Enjoy using `that-react-app-you-want`!",
+    "postinstall":
+      "# Run `yarn run dev` on macOS or `yarn run dev:win` on Windows before building. Enjoy using `that-react-app-you-want`!",
     "precommit": "lint-staged",
     "release": "standard-version",
     "start":
@@ -136,7 +136,6 @@
     "favicon-generator",
     "generact",
     "hot-loader",
-    "jsx",
     "manifest",
     "mobile-icons",
     "postCSS",

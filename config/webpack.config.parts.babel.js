@@ -89,7 +89,7 @@ const lintJavaScript = ({ include, exclude, options }) => ({
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/, // /\.(js|jsx)$/,
         include,
         exclude,
         enforce: 'pre',
@@ -105,7 +105,7 @@ const loadJavaScript = ({ include, exclude, query }) => ({
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/, // /\.(js|jsx)$/,
         include,
         exclude,
 

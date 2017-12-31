@@ -1,7 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
-const appDirectory = fs.realpathSync(process.cwd())
+const currentDir = process.cwd()
+
+const appDirectory = fs.realpathSync(currentDir)
 const resolvePath = relativePath => path.resolve(appDirectory, relativePath)
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -20,7 +22,7 @@ const PATHS = {
   polyfills: resolvePath('config/polyfills'),
   postCSS: resolvePath('config/postcss.config.js'),
   publicPath: isProduction ? './' : '/',
-  root: process.cwd(),
+  root: currentDir,
   vendorFilepath: resolvePath('dll/vendors.dll.js'),
   vendorManifest: resolvePath('dll/vendors-manifest.json')
 }
