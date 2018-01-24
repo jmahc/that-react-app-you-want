@@ -1,5 +1,5 @@
-import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import webpack from 'webpack'
 
 const devServer = ({ port, publicPath, stats } = {}) => ({
   devServer: {
@@ -89,7 +89,7 @@ const lintJavaScript = ({ include, exclude, options }) => ({
   module: {
     rules: [
       {
-        test: /\.js$/, // /\.(js|jsx)$/,
+        test: /\.js$/, // For `.jsx` people.
         include,
         exclude,
         enforce: 'pre',
@@ -105,13 +105,27 @@ const loadJavaScript = ({ include, exclude, query }) => ({
   module: {
     rules: [
       {
-        test: /\.js$/, // /\.(js|jsx)$/,
+        test: /\.js$/, // For `.jsx` people.
         include,
         exclude,
 
         loader: 'babel-loader',
 
         query
+      }
+    ]
+  }
+})
+
+const loadSvg = ({ include, exclude }) => ({
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: ['file-loader', 'svgo-loader'],
+
+        include,
+        exclude
       }
     ]
   }
@@ -132,5 +146,6 @@ export {
   lintJavaScript,
   loadCss,
   loadJavaScript,
+  loadSvg,
   setFreeVariable
 }

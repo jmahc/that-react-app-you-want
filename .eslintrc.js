@@ -87,6 +87,13 @@ const options = {
     }
   },
 
+  // Prevent errors for webpack's `DefinePlugin` method when declaring
+  // global constants.  Note: in this application, it is declared via
+  // the `webpack.parts` file with the method `setFreeVariable`
+  // globals: {
+  //   API_URL: true
+  // },
+
   rules: {
     // eslint-plugin-prettier
     'prettier/prettier': [
@@ -94,8 +101,7 @@ const options = {
       {
         singleQuote: true,
         semi: false,
-        trailingComma: 'none',
-        // none, es5, all
+        trailingComma: 'none', // none, es5, all
         bracketSpacing: true,
         jsxBracketSameLine: false
       }
@@ -252,8 +258,8 @@ const options = {
     'react/require-render-return': 'error',
     'react/style-prop-object': 'warn',
 
-    // // http://eslint.org/docs/rules/jsx-quotes
-    // 'jsx-quotes': ['error', 'prefer-single'],
+    // http://eslint.org/docs/rules/jsx-quotes
+    'jsx-quotes': ['error', 'prefer-double'],
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
     'jsx-a11y/accessible-emoji': 'warn',

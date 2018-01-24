@@ -1,9 +1,8 @@
-import glob from 'glob'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
 
-import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
+import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import PurifyCSSPlugin from 'purifycss-webpack'
@@ -19,12 +18,11 @@ const productionConfig = merge([
     exclude: /node_modules/,
     options: {
       config: {
-        path: PATHS.postCSS
+        path: PATHS.postCssConfig
       }
     }
   }),
   {
-    devtool: 'source-map',
     output: {
       chunkFilename: '[name].[chunkhash].js',
       filename: '[name].[chunkhash].js',
@@ -43,11 +41,13 @@ const productionConfig = merge([
         include: 'asyncChunks'
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      // Remove unused CSS.
+      /*
+       * Remove unused CSS.
+      */
       new PurifyCSSPlugin({
         minimize: false,
-        moduleExtensions: ['.html'],
-        paths: glob.sync(`${PATHS.app}/**/*.js`), // glob.sync(`${PATHS.app}/**/*.jsx`),
+        moduleExtensions: ['.html', '.ejs'],
+        paths: PATHS.purifyCssPaths,
         purifyOptions: {
           info: true,
           minify: true,
@@ -58,9 +58,11 @@ const productionConfig = merge([
           // start with the same prefix
           // , whitelist: ['*thirdPartyPrefix*']
         },
-        styleExtensions: ['.css']
+        styleExtensions: ['.css', '.scss', '.sass']
       }),
-      // Further CSS optimizations.
+      /*
+       *  Further CSS optimizations.
+       */
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true

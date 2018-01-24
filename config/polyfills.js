@@ -14,12 +14,10 @@ if (typeof Promise === 'undefined') {
 }
 
 // fetch() polyfill for making API calls.
-
 // eslint-disable-next-line
 require('whatwg-fetch')
 
 // Object.assign() is commonly used with React.
 // It will use the native implementation if it's present and isn't buggy.
-
 // eslint-disable-next-line
 Object.assign = require('object-assign')

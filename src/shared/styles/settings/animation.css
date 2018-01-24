@@ -1,0 +1,15 @@
+:root {
+  --color-black: rgb(0, 0, 0);
+
+  --rotation-start: 0deg;
+  --rotation-end: 0deg;
+}
+
+@keyframes Icon-logo-spin {
+  from {
+    transform: rotate(var(--rotation-start));
+  }
+  to {
+    transform: rotate(var(--rotation-end));
+  }
+}

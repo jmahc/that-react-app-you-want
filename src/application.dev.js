@@ -3,14 +3,13 @@ import { render } from 'react-dom'
 
 import App from '@/containers/App'
 
-import './styles.css'
+import '#/index.css'
 
 const renderApplication = ApplicationComponent => {
   const AppContainer = require('react-hot-loader').AppContainer
   // Trick babel to avoid hoisting `<AppContainer />`
   // via `babel-plugin-transform-react-constant-elements`.
-  // Found here:
-  // ~ https://github.com/LWJGL/lwjgl3-www/
+  // Discussed here: https://github.com/LWJGL/lwjgl3-www/
   const noHoist = {}
 
   render(

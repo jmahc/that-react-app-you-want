@@ -7,9 +7,15 @@
 # DLL folder (development)
 /dll
 
+# testing
+coverage/
+
+# local
+#.env
+#.env.*
+
 # misc
 .DS_Store
-.
 /reports
 
 # npmjs.com
@@ -21,3 +27,6 @@ yarn.lock
 yarn-debug.log*
 yarn-error.log*
 .yarnclean
+
+# webpack stats
+config/stats/*
