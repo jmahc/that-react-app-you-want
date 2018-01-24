@@ -3,6 +3,5 @@
     "src/**/*.js": ["prettier-standard", "git add"],
     "config/**/*.js": ["prettier-standard", "git add"],
     "src/**/*.css": ["prettier --parser postcss --write"]
-  },
-  "yarn.lock": ["git rm --cached"]
+  }
 }
