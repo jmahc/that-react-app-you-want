@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
-
+// @ resolves to `src/`
 import App from '@/containers/App'
-
+// # resolves to `src/shared/styles/`
 import '#/index.css'
 
 const renderApplication = ApplicationComponent => {
