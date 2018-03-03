@@ -1,0 +1,12 @@
+{
+  // This file is required for VSCode to understand webpack aliases.
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "%/*": ["src/shared/*"],
+      "#/*": ["src/shared/styles/*"]
+    },
+    "jsx": "react"
+  }
+}

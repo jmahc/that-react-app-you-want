@@ -26,7 +26,6 @@ class App extends Component {
         </p>
         <br />
         <Button />
-        <p>Hello - Happy New Year!</p>
       </div>
     )
   }
