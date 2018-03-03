@@ -6,7 +6,7 @@ import webpack from 'webpack'
  * vendor dependency that is throwing an error.
  */
 import entries from './dependencies.babel'
-import PATHS from './paths.babel'
+import PATHS from './paths'
 
 // NOTE: The library and the plugin's filename MUST match.
 const vendorLibraryName = 'vendors_lib'

@@ -1,6 +1,6 @@
-import fs from 'fs'
-import glob from 'glob'
-import path from 'path'
+const fs = require('fs')
+const glob = require('glob')
+const path = require('path')
 
 const currentDir = process.cwd()
 
@@ -39,4 +39,4 @@ const PATHS = {
   yarnLockFile: resolvePath('yarn.lock')
 }
 
-export default PATHS
+module.exports = PATHS

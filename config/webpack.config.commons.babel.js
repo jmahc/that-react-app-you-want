@@ -3,7 +3,8 @@ import webpack from 'webpack'
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import PATHS from './paths.babel'
+import alias from './alias.config'
+import PATHS from './paths'
 import stats from './stats.babel'
 import {
   lintJavaScript,
@@ -113,11 +114,7 @@ const commonsConfig = merge([
       new webpack.NamedModulesPlugin()
     ],
     resolve: {
-      alias: {
-        '@': PATHS.app,
-        '%': PATHS.shared,
-        '#': PATHS.styles
-      },
+      alias,
       aliasFields: ['browser'],
       descriptionFiles: ['package.json'],
       enforceExtension: false,

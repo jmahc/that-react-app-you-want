@@ -9,7 +9,7 @@ import PurifyCSSPlugin from 'purifycss-webpack'
 import WebpackChunkHash from 'webpack-chunk-hash'
 
 import isVendor from './isVendor.babel'
-import PATHS from './paths.babel'
+import PATHS from './paths'
 import { extractCss } from './webpack.config.parts.babel'
 
 const productionConfig = merge([
