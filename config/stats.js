@@ -1,4 +1,4 @@
-const stats = {
+module.exports = {
   assets: true,
   chunks: false,
   chunkModules: false,
@@ -10,5 +10,3 @@ const stats = {
   reasons: true,
   warnings: true
 }
-
-export default stats

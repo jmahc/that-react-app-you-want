@@ -20,6 +20,11 @@ const vendorConfig = {
     library: vendorLibraryName,
     path: PATHS.dll
   },
+  // module: {
+  //   rules: {
+
+  //   }
+  // },
   plugins: [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DllPlugin({

@@ -6,6 +6,13 @@ const currentDir = process.cwd()
 
 // Ensure any symlinks in the project folder are resolved:
 const appDirectory = fs.realpathSync(currentDir)
+/**
+ * Gets the path of the provided string (assuming it exists),
+ * relative the project's current working directory via `process.cwd()`.
+ *
+ * @param {string} relativePath The directory or filepath.
+ * @returns {string} The resolved path to a directory or file.
+ */
 const resolvePath = relativePath => path.resolve(appDirectory, relativePath)
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -21,8 +28,6 @@ const PATHS = {
   dll: resolvePath('dll'),
   dotenv: resolvePath('.env'),
   favicon: resolvePath('src/shared/assets/favicon/favicon.ico'),
-  // Uncomment this for `favicons-webpack-plugin`
-  // image: resolvePath('src/shared/assets/images/spy_kid.png'),
   indexHtml: resolvePath('public/index.ejs'),
   nodeModules: resolvePath('node_modules'),
   packageJson: resolvePath('package.json'),
@@ -30,7 +35,7 @@ const PATHS = {
   postCssConfig: resolvePath('config/postcss.config.js'),
   public: resolvePath('public'),
   publicPath: isProduction ? './' : '/',
-  purifyCssPaths: glob.sync(`${resolvePath('src')}/**/*.js`), // glob.sync(`${PATHS.app}/**/*.js`),
+  purifyCssPaths: glob.sync(`${resolvePath('src')}/**/*.js`),
   root: currentDir,
   shared: resolvePath('src/shared'),
   styles: resolvePath('src/shared/styles'),

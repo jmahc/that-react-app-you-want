@@ -1,14 +1,15 @@
 # dependencies
-/node_modules
+node_modules/
 
 # build folder (production)
-/dist
+dist/
 
 # DLL folder (development)
-/dll
+dll/
 
 # testing
 coverage/
+test-reports/
 
 # local
 #.env
@@ -16,7 +17,7 @@ coverage/
 
 # misc
 .DS_Store
-/reports
+reports/
 
 # npmjs.com
 npm-debug.log*

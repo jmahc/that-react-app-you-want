@@ -8,7 +8,7 @@ import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import PurifyCSSPlugin from 'purifycss-webpack'
 import WebpackChunkHash from 'webpack-chunk-hash'
 
-import isVendor from './isVendor.babel'
+import isVendor from './isVendor'
 import PATHS from './paths'
 import { extractCss } from './webpack.config.parts.babel'
 

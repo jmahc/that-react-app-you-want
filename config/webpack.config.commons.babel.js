@@ -1,11 +1,11 @@
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
 
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-
 import alias from './alias.config'
 import PATHS from './paths'
-import stats from './stats.babel'
+import seo from './seo.config'
+import stats from './stats'
 import {
   lintJavaScript,
   loadJavaScript,
@@ -14,23 +14,18 @@ import {
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-const commonsConfig = merge([
+const commonsConfig = [
+  /**
+   *  Sets a "free" variable to be used across the application.
+   */
   setFreeVariable(
     'process.env.NODE_ENV',
     isProduction ? 'production' : 'development'
   ),
-  /*
-   * Optional support for linting your JS before webpack builds it.
-  */
-  // lintJavaScript({
-  //   include: PATHS.app,
-  //   exclude: PATHS.nodeModules,
-  //   options: {
-  //     failOnError: false,
-  //     failOnWarning: false,
-  //     quiet: false
-  //   }
-  // }),
+  /**
+   *  The JavaScript loader that utilizes the `babel.config.js`
+   *  file located in the `config` directory.
+   */
   loadJavaScript({
     include: PATHS.app,
     exclude: /node_modules/,
@@ -51,20 +46,29 @@ const commonsConfig = merge([
         {
           exclude: [
             /\.html$/,
-            /\.(js|jsx)$/, // For those who enjoy `.jsx` files.
+            // For those who prefer `.jsx` files.
+            /\.(js|jsx)$/,
             /\.css$/,
             /\.json$/,
             /\.bmp$/,
             /\.gif$/,
             /\.jpe?g$/,
             /\.png$/,
-            // Add any "extraneous" files to this loader.
-            // e.g.:  If `sass/scss` is used with `sass-loader`,
-            //        be sure to add the following regex:
-            //          /\.(sass|scss)$/
-            //        to prevent a '.sass' file from being generated
-            //        and therefore, excluded from the application.
+            // The `public/index.ejs` file uses this file extension.
             /\.ejs$/
+            /**
+             *  Add any "extraneous" files to this loader that you
+             *  wish to include into your project.
+             *
+             *  - For example:
+             *  If you are using `sass/scss` in combination with the
+             *  `sass-loader`, be sure to add the following regex
+             *  to prevent a '.sass' file from being generated and
+             *  excluded from the application:
+             *
+             *  /\.(sass|scss)$/
+             *
+             */
           ],
           loader: 'file-loader',
           options: {
@@ -82,6 +86,11 @@ const commonsConfig = merge([
       ]
     },
     plugins: [
+      /**
+       *  These libraries are commonly found as dependencies
+       *  of other libraries. Ignore these specifically
+       *  to lighten the load of the bundle.
+       */
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new HtmlWebpackPlugin({
         chunksSortMode: 'dependency',
@@ -100,16 +109,9 @@ const commonsConfig = merge([
           removeStyleLinkTypeAttributes: true,
           useShortDoctype: true
         },
-        seo: {
-          description:
-            'This is that React app that you have been searching day and night for - enjoy.',
-          image: 'https://avatars3.githubusercontent.com/u/5778136?s=460&v=4',
-          title: 'that-react-app-you-want',
-          twitter_handle: '@j_mahc',
-          url: 'https://github.com/jmahc'
-        },
+        seo,
         template: PATHS.indexHtml,
-        title: 'That react app you want and just now found.'
+        title: 'Update me in `config/webpack.config.commons.babel.js`.'
       }),
       new webpack.NamedModulesPlugin()
     ],
@@ -119,13 +121,17 @@ const commonsConfig = merge([
       descriptionFiles: ['package.json'],
       enforceExtension: false,
       enforceModuleExtension: false,
-      extensions: ['.js', '.json', '.ejs'], // `.jsx` is optional.
+      // `.jsx` is optional here.
+      extensions: ['.js', '.jsx', '.json', '.ejs'],
       mainFields: ['browser', 'module', 'main'],
       mainFiles: ['index'],
       modules: ['node_modules', PATHS.app, 'containers', 'components'],
       symlinks: true
-      // Investigate plugins:
-      // https://www.npmjs.com/package/directory-named-webpack-plugin
+      /**
+       *  TODO
+       *  Investigate plugins:
+       *  - https://www.npmjs.com/package/directory-named-webpack-plugin
+       */
     },
     stats,
     node: {
@@ -143,6 +149,26 @@ const commonsConfig = merge([
     },
     target: 'web'
   }
-])
+]
 
-export default commonsConfig
+/*
+ * Optional support for linting your JS before webpack builds it.
+ * In the `package.json` "scripts" section, flag `ENABLE_LINTING`
+ * to true/false to enable/disable the linter.
+ */
+if (process.env.ENABLE_LINTING) {
+  // This will prepend the linter to the `commonsConfig` array.
+  commonsConfig.unshift(
+    lintJavaScript({
+      include: PATHS.app,
+      exclude: PATHS.nodeModules,
+      options: {
+        failOnError: false,
+        failOnWarning: false,
+        quiet: false
+      }
+    })
+  )
+}
+
+export default merge(commonsConfig)

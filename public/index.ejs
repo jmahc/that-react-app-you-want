@@ -8,6 +8,10 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:site" content="<%= htmlWebpackPlugin.options.seo.twitter.site %>" />
+  <meta property="twitter:creator" content="<%= htmlWebpackPlugin.options.seo.twitter.creator %>" />
   <!-- Open graph -->
   <meta property="og:title" content="<%= htmlWebpackPlugin.options.seo.title %>" />
   <meta property="og:url" content="<%= htmlWebpackPlugin.options.seo.url %>" />
@@ -22,8 +26,8 @@
   <div id="root"></div>
   <!-- Injects the manifest.json file -->
   <%= htmlWebpackPlugin.files.webpackManifest %>
-  <!-- Injects the manifest.[hash].js file -->
-  <%= htmlWebpackPlugin.files.manifest %>
+    <!-- Injects the manifest.[hash].js file -->
+    <%= htmlWebpackPlugin.files.manifest %>
 </body>
 
 </html>
