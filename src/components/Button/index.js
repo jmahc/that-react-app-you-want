@@ -3,42 +3,51 @@ import React, { Component } from 'react'
 import '@/components/Button/styles.css'
 
 class Button extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
-    this.CodeSplittingComponentPropsText = null
+    this.state = {
+      Component: null,
+      lazyText: null
+    }
   }
   handleOnClick() {
-    // Import (lazy-load) the "lazy" text from the component file.
+    /**
+     * Import the "lazy" text from the component file using the `import()` ES6 proposal syntax.
+     */
     import('@/components/CodeSplittingComponent/lazyText' /* webpackChunkName: "LazyText" */)
-      .then(lazyTextResponse => {
-        this.CodeSplittingComponentPropsText = lazyTextResponse.default
-      })
-      .then(() => {
-        // Once imported, pass the "lazy" text as a prop to the `CodeSplittingComponent`.
+      /**
+       * Pass the "lazy text" to the next `then` method to only `this.setState()` once
+       * and trimming down the number of times that the component renders.
+       */
+      .then(lazyTextResponse => lazyTextResponse)
+      .then(lazyText => {
         import('@/components/CodeSplittingComponent' /* webpackChunkName: "CodeSplittingComponent" */).then(
-          CodeSplittingComponent => {
-            // Assign `this.Component` to the component that was lazily loaded.
-            this.Component = CodeSplittingComponent
-            this.forceUpdate()
+          LoadedComponent => {
+            /**
+             * Set the state for the component and text using the default exports.
+             */
+            this.setState({
+              Component: LoadedComponent.default,
+              lazyText: lazyText.default
+            })
           }
         )
       })
   }
 
   render() {
-    /*
-      - Using `this.Component`, if it exists, which is untrue on initialization,
-        return the object's default value (the component itself).
-      - Otherwise, load the button that will be replaced!
-     */
-    return this && this.Component && this.Component.default ? (
-      <this.Component.default lazyText={this.CodeSplittingComponentPropsText} />
-    ) : (
+    const { Component, lazyText } = this.state
+
+    return (
       <div>
-        <button className="Button-big" onClick={() => this.handleOnClick()}>
-          Click here to code split, yo!
-        </button>
+        {Component ? (
+          <Component lazyText={lazyText} />
+        ) : (
+          <button className="Button-big" onClick={() => this.handleOnClick()}>
+            Click here to code split, yo!
+          </button>
+        )}
       </div>
     )
   }

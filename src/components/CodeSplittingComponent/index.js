@@ -1,15 +1,13 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './styles.css'
 
-const CodeSplittingComponent = ({ lazyText }) => {
-  return (
-    <div>
-      <button className="CodeSplittingComponent-button">{lazyText}</button>
-    </div>
-  )
-}
+const CodeSplittingComponent = ({ lazyText }) => (
+  <div>
+    <button className="CodeSplittingComponent-button">{lazyText}</button>
+  </div>
+)
 
 CodeSplittingComponent.propTypes = {
   lazyTest: PropTypes.string
