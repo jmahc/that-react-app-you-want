@@ -3,12 +3,10 @@ import React from 'react'
 
 import './styles.css'
 
-const CodeSplittingComponent = props => {
+const CodeSplittingComponent = ({ lazyText }) => {
   return (
     <div>
-      <button className="CodeSplittingComponent-button">
-        {props.lazyText}
-      </button>
+      <button className="CodeSplittingComponent-button">{lazyText}</button>
     </div>
   )
 }
