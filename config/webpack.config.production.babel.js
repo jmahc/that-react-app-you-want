@@ -42,7 +42,7 @@ const productionConfig = merge([
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       /*
-       * Remove unused CSS.
+       *  Removes unused CSS in the project directory.
       */
       new PurifyCSSPlugin({
         minimize: false,
@@ -53,12 +53,19 @@ const productionConfig = merge([
           minify: true,
           output: false,
           rejected: true
-          // Using a third-party library?
-          // Whitelist it here if all the classnames
-          // start with the same prefix
-          // , whitelist: ['*thirdPartyPrefix*']
+          /**
+           *  Using a third-party library? Whitelist it here if
+           *  all the classnames start with the same prefix,
+           *  whitelist: ['*thirdPartyPrefix*']
+           */
         },
-        styleExtensions: ['.css', '.scss', '.sass']
+        /**
+         *  Feel free to add whatever stylesheet extension that
+         *  is required such as:
+         *
+         *  '.scss', '.sass'
+         */
+        styleExtensions: ['.css']
       }),
       /*
        *  Further CSS optimizations.
@@ -68,7 +75,9 @@ const productionConfig = merge([
           safe: true
         }
       }),
-      // Identify the application's "chunks".
+      /**
+       * Identify the application's "chunks".
+       */
       new webpack.optimize.CommonsChunkPlugin({
         async: true,
         children: true,
@@ -82,7 +91,9 @@ const productionConfig = merge([
         name: 'manifest',
         chunks: ['app', 'vendor']
       }),
-      // JavaScript minification
+      /**
+       *  JavaScript minification.
+       */
       new webpack.optimize.UglifyJsPlugin({
         beautify: false,
         mangle: {
@@ -99,20 +110,28 @@ const productionConfig = merge([
         sourceMap: true,
         comments: false
       }),
-      // Keeps the same [chunkhashes] for vendor and manifest files...
+      /**
+       *  Keeps the same [chunkhashes] for vendor and manifest files.
+       */
       new webpack.HashedModuleIdsPlugin(),
-      // Specify the chunk/hashing algorithm with 'md5' as the default.
+      /**
+       *  Specify the chunk/hashing algorithm with 'md5' as the default.
+       */
       new WebpackChunkHash({
         algorithm: 'md5'
       }),
-      // Inline the chunk manifest alongside 'html-webpack-plugin'.
+      /**
+       *  Inline the chunk manifest alongside 'html-webpack-plugin'.
+       */
       new InlineChunkManifestHtmlWebpackPlugin({
         filename: 'manifest.json',
         manifestVariable: 'webpackManifest',
         chunkManifestVariable: 'webpackChunkManifest',
         dropAsset: false
       }),
-      // Gzip files.
+      /**
+       *  Gzip files.
+       */
       new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',

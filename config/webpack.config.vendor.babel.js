@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 /**
- * NOTE: If there are any errors regarding webpack's entry
+ * NOTE:
+ * If there are any errors regarding webpack's entry
  * configuration, check the `config/dependencies.babel.js` file
  * for instructions on resolving the errors by excluding the
  * vendor dependency that is throwing an error.
@@ -8,7 +9,10 @@ import webpack from 'webpack'
 import entries from './dependencies.babel'
 import PATHS from './paths'
 
-// NOTE: The library and the plugin's filename MUST match.
+/**
+ *  NOTE:
+ *  The library and the plugin's filename MUST match.
+ */
 const vendorLibraryName = 'vendors_lib'
 
 const vendorConfig = {
@@ -20,11 +24,32 @@ const vendorConfig = {
     library: vendorLibraryName,
     path: PATHS.dll
   },
-  // module: {
-  //   rules: {
-
-  //   }
-  // },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        include: PATHS.app,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: PATHS.postCssConfig
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
   plugins: [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DllPlugin({

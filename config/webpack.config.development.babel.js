@@ -4,12 +4,9 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
 
-import isVendor from './isVendor'
 import PATHS from './paths'
 import stats from './stats'
 import { devServer, loadCss } from './webpack.config.parts.babel'
-
-const isProduction = process.env.NODE_ENV === 'production'
 
 const developmentConfig = merge([
   /**

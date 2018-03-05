@@ -5,12 +5,12 @@ import packageJson from '../package.json'
  * webpack error for third-party libraries that are
  * Exclude any `package.json` dependencies that throw errors here.
  */
-const excluded = ['normalize.css']
+const ignoreThese = ['normalize.css']
 
 let dependencies = []
 
 Object.keys(packageJson.dependencies).filter(
-  key => (ignored.indexOf(key) === -1 ? dependencies.push(key) : null)
+  key => (ignoreThese.indexOf(key) === -1 ? dependencies.push(key) : null)
 )
 
 export default dependencies
