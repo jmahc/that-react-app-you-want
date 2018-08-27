@@ -5,7 +5,6 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import merge from 'webpack-merge'
 import webpack from 'webpack'
 
-import isVendor from './isVendor.babel'
 import PATHS from './paths'
 import stats from './stats.babel'
 import { devServer, loadCss } from './webpack.config.parts.babel'

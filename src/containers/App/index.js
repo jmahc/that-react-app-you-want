@@ -21,8 +21,8 @@ class App extends Component {
           <h2>this is that-react-app-you-want.</h2>
         </div>
         <p className="App-intro">
-          Run the <code>build</code> command to check out purifycss or click the
-          button for some chunks & lazy loading.
+          Run the <code>build</code> command to check out <code>purifycss</code>{' '}
+          or click the button for some chunks & lazy loading.
         </p>
         <br />
         <Button />

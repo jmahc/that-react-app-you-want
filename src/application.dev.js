@@ -23,9 +23,9 @@ const renderApplication = ApplicationComponent => {
 // Render the application.
 renderApplication(App)
 
-if (process.env.NODE_ENV !== 'production' && module.hot) {
-  module.hot.accept('./containers/App', () => {
-    const NewApp = require('./containers/App').default
+if (module.hot) {
+  module.hot.accept('@/containers/App', () => {
+    const NewApp = require('@/containers/App').default
 
     renderApplication(NewApp)
   })
