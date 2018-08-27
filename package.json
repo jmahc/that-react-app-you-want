@@ -37,9 +37,7 @@
     "precommit": "lint-staged",
     "release": "standard-version",
     "start":
-      "npm run start-first && cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
-    "start-first":
-      "\n Don't forget to run `npm run dev` if this is your first time building! 👨🏻‍💻 \n",
+      "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
     "webpack-defaults": "webpack-defaults"
   },
   "devDependencies": {
