@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "author": {
     "name": "Jordan McArdle",
     "email": "jordan@mcardle.tech",
@@ -15,29 +15,26 @@
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
   "engines": {
     "node": ">=6.0.0",
-    "npm": ">=3.0.0",
-    "yarn": ">=1.0.0"
+    "npm": ">=3.0.0"
   },
   "scripts": {
     "build": "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
     "build:win": "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean": "rm -rf ./dist/* ./dll/* node_modules yarn.lock .yarnclean yarn-error.log ./**/*.DS_STORE ./.DS_STORE",
-    "clean-all": "yarn run clean",
-    "clean:all": "del /q dist\\* dll\\* node_modules yarn.lock .yarnclean",
+    "clean": "rm -rf ./dist/* ./dll/* node_modules ./**/*.DS_STORE ./.DS_STORE",
+    "clean-all": "npm run clean",
+    "clean:all": "del /q dist\\* dll\\* node_modules",
     "clean-dist": "rm -rf ./dist/*",
     "clean:dist": "del /q dist\\*",
     "clean-dll": "del /q dll\\*",
-    "clean-yarn": "rm -rf node_modules yarn.lock .yarnclean",
-    "clean:yarn": "del /q node_modules yarn.lock .yarnclean",
     "dev": "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "dev:win": "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "format": "prettier-standard 'src/**/*.js'",
-    "postmerge": "yarn",
+    "postmerge": "npm install",
     "postinstall": "cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "precommit": "lint-staged",
     "release": "standard-version",
-    "start": "yarn run start-first && cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
-    "start-first": "\n # Don't forget to run `yarn run dev` if this is your first time building! 👨🏻‍💻 \n",
+    "start": "npm run start-first && cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
+    "start-first": "\n # Don't forget to run `npm run dev` if this is your first time building! 👨🏻‍💻 \n",
     "webpack-defaults": "webpack-defaults"
   },
   "devDependencies": {
@@ -181,7 +178,6 @@
     "webpack@3.7.0",
     "webpack@3.8.0",
     "webpack@3.8.1",
-    "webpack@3.10.0",
-    "yarn"
+    "webpack@3.10.0"
   ]
 }
