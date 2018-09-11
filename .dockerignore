@@ -1,0 +1,9 @@
+README.md
+node_modules
+dist
+dll
+reports
+.travis.yml
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE

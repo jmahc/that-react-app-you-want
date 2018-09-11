@@ -5,7 +5,11 @@ const devServer = ({ port, publicPath, stats } = {}) => ({
   devServer: {
     compress: true,
     historyApiFallback: true,
+    // TODO: We need to set this as an environment variable.
+    host: process.env.HOST || '0.0.0.0',
     hot: true,
+    // TODO: This.
+    // https: true,
     overlay: {
       errors: true,
       warnings: true

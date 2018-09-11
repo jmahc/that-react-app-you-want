@@ -12,33 +12,27 @@
   "files": ["dist", "dll"],
   "homepage": "https://github.com/jmahc/that-react-app-you-want#readme",
   "engines": {
-    "node": ">=6.0.0",
-    "npm": ">=3.0.0"
+    "node": ">=9.0.0",
+    "npm": ">=5.0.0"
   },
   "scripts": {
     "build":
-      "rimraf ./dist/* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "build:win":
-      "del /q dist\\* && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean": "rm -rf ./dist/* ./dll/* node_modules ./**/*.DS_STORE ./.DS_STORE",
-    "clean-all": "npm run clean",
-    "clean:all": "del /q dist\\* dll\\* node_modules",
-    "clean-dist": "rm -rf ./dist/*",
-    "clean:dist": "del /q dist\\*",
-    "clean-dll": "del /q dll\\*",
+      "rm -rf ./dist && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
+    "clean": "rm -rf ./dist ./dll node_modules ./**/*.DS_STORE ./.DS_STORE",
     "dev":
-      "rm -rf ./dll/* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
+      "cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "dev:win":
       "del /q dll\\* && cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
     "format": "prettier-standard 'src/**/*.js'",
-    "postmerge": "npm install",
-    "postinstall":
-      "cross-env NODE_ENV=development webpack --profile --progress --env development --config ./config/webpack.config.vendor.babel.js",
-    "precommit": "lint-staged",
     "release": "standard-version",
     "start":
+      "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development",
+    "start-old":
       "cross-env NODE_ENV=development PORT_NUMBER=8080 webpack-dev-server --env development --open",
     "webpack-defaults": "webpack-defaults"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^2.1.2",

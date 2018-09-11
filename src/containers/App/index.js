@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <Icon />
-          <h2>this is that-react-app-you-want.</h2>
+          <h2>this is that-react-app-you-want!</h2>
         </div>
         <p className="App-intro">
           Run the <code>build</code> command to check out <code>purifycss</code>{' '}
