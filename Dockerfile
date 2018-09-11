@@ -1,5 +1,5 @@
 
-FROM node:9.11.1
+FROM node:9.11.2-alpine
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
