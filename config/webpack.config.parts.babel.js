@@ -8,7 +8,7 @@ const devServer = ({ port, publicPath, stats } = {}) => ({
     // TODO: We need to set this as an environment variable.
     host: process.env.HOST || '0.0.0.0',
     hot: true,
-    // TODO: This.
+    // TODO: Enable HTTPS for the `webpack-dev-server`.
     // https: true,
     overlay: {
       errors: true,

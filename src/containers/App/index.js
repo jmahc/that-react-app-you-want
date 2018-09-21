@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <p>Poot</p>
         <div className="App-header">
           <Icon />
           <h2>this is that-react-app-you-want!</h2>
