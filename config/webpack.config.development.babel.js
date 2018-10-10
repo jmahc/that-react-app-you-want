@@ -39,10 +39,10 @@ const developmentConfig = merge([
       // `Atom` (https://atom.io) - so don't be alarmed.
       // Also, don't forget to run:
       // `yarn run dev:dll` or `npm run dev:dll`
-      new webpack.DllReferencePlugin({
-        context: PATHS.root,
-        manifest: PATHS.vendorManifest
-      }),
+      // new webpack.DllReferencePlugin({
+      //   context: PATHS.root,
+      //   manifest: PATHS.vendorManifest
+      // }),
       new AddAssetHtmlPlugin({
         filepath: PATHS.vendorFilepath,
         includeSourceMap: true
