@@ -1,9 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import App from '@/containers/App'
-
-import '#/index.css'
+import App from './containers/App'
 
 const renderApplication = ApplicationComponent =>
   render(<ApplicationComponent />, document.getElementById('root'))

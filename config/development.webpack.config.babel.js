@@ -1,51 +1,31 @@
-import merge from 'webpack-merge'
+import AddAssetHtmlPlugin from 'add-asset-html-webpack-plugin'
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
+import Dotenv from 'dotenv-webpack'
+import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { alias, PATHS } from './shared'
+import { devServerConfig, stats } from './options'
 
-import alias from './alias.config'
-import PATHS from './paths'
-import stats from './stats.babel'
-import {
-  lintJavaScript,
-  loadJavaScript,
-  setFreeVariable,
-} from './webpack.config.parts.babel'
-
-const isProduction = process.env.NODE_ENV === 'production'
-
-const commonsConfig = merge([
-  setFreeVariable(
-    'process.env.NODE_ENV',
-    isProduction ? 'production' : 'development',
-  ),
-  /*
-   * Optional support for linting your JS before webpack builds it.
-  */
-  // lintJavaScript({
-  //   include: PATHS.app,
-  //   exclude: PATHS.nodeModules,
-  //   options: {
-  //     failOnError: false,
-  //     failOnWarning: false,
-  //     quiet: false
-  //   }
-  // }),
-  loadJavaScript({
-    include: PATHS.app,
-    exclude: /node_modules/,
-    query: PATHS.babelConfig,
-  }),
-  {
+export default function developmentWebpack() {
+  return {
     bail: true,
-    context: PATHS.app,
-    devtool: isProduction ? 'source-map' : '#cheap-module-eval-source-map',
+    context: PATHS.appSrc,
+    devtool: '#cheap-module-eval-source-map',
+    target: 'web',
+    mode: 'development',
     entry: {
-      app: [
-        isProduction ? PATHS.polyfills : 'react-hot-loader/patch',
-        PATHS.app,
-      ],
+      app: ['react-hot-loader/patch', PATHS.entry],
     },
+    output: {
+      chunkFilename: '[id].chunk.js',
+      filename: '[name].js',
+      path: PATHS.build,
+      pathinfo: true,
+      publicPath: PATHS.publicPath,
+    },
+    devServer: devServerConfig,
     module: {
       rules: [
         {
@@ -72,6 +52,21 @@ const commonsConfig = merge([
           },
         },
         {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'file-loader',
+              // options: {}
+            },
+            {
+              loader: 'svgo-loader',
+              // options: {}
+            },
+          ],
+          include: PATHS.appSrc,
+          exclude: PATHS.nodeModules,
+        },
+        {
           test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
           loader: 'url-loader',
           options: {
@@ -79,10 +74,40 @@ const commonsConfig = merge([
             name: '[name].[hash:8].[ext]',
           },
         },
+        {
+          test: /\.js?$/,
+          include: [PATHS.appSrc],
+          exclude: [
+            /node_modules\/(?!@vaco_dev\/components)/,
+            // Storybook.
+            /.stories.js$/,
+            /stories.js$/,
+            // Test directories.
+            /__tests__/,
+            /.test.js$/,
+            /.test.js.snap$/,
+          ],
+          use: {
+            loader: 'babel-loader',
+          },
+        },
       ],
     },
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.EnvironmentPlugin(['API_URL', 'APP_PORT']),
+      new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: PATHS.vendors.manifest,
+      }),
+      new FriendlyErrorsPlugin(),
+      new CaseSensitivePathsPlugin(),
+      new Dotenv({
+        path: PATHS.dotenv.main,
+        safe: false,
+      }),
       new HtmlWebpackPlugin({
         chunksSortMode: 'dependency',
         favicon: PATHS.favicon,
@@ -111,7 +136,10 @@ const commonsConfig = merge([
         template: PATHS.indexHtml,
         title: 'That react app you want and just now found.',
       }),
-      new webpack.NamedModulesPlugin(),
+      new AddAssetHtmlPlugin({
+        filepath: PATHS.vendors.filepath,
+        includeSourceMap: true,
+      }),
     ],
     resolve: {
       alias,
@@ -119,15 +147,17 @@ const commonsConfig = merge([
       descriptionFiles: ['package.json'],
       enforceExtension: false,
       enforceModuleExtension: false,
-      extensions: ['.js', '.json', '.ejs'], // `.jsx` is optional.
-      mainFields: ['browser', 'module', 'main'],
+      extensions: ['.js', '.json', '.ejs'],
+      // mainFields: ['browser', 'module', 'main'],
       mainFiles: ['index'],
-      modules: ['node_modules', PATHS.app, 'containers', 'components'],
-      symlinks: true,
+      modules: ['node_modules'],
       // Investigate plugins:
       // https://www.npmjs.com/package/directory-named-webpack-plugin
     },
     stats,
+    performance: {
+      hints: false,
+    },
     node: {
       console: false,
       global: true,
@@ -141,8 +171,5 @@ const commonsConfig = merge([
       net: 'empty',
       tls: 'empty',
     },
-    target: 'web',
-  },
-])
-
-export default commonsConfig
+  }
+}

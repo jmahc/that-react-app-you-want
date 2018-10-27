@@ -58,22 +58,28 @@ var restrictedGlobals = [
   'statusbar',
   'stop',
   'toolbar',
-  'top'
+  'top',
 ]
 
-const options = {
+module.exports = {
   root: true,
 
   parser: 'babel-eslint',
 
   plugins: ['prettier', 'import', 'jsx-a11y', 'react'],
 
+  settings: {
+    react: {
+      version: '16.0',
+    },
+  },
+
   env: {
     browser: true,
     commonjs: true,
     es6: true,
     jest: true,
-    node: true
+    node: true,
   },
 
   parserOptions: {
@@ -83,34 +89,35 @@ const options = {
       jsx: true,
       modules: true,
       generators: true,
-      experimentalObjectRestSpread: true
-    }
+      experimentalObjectRestSpread: true,
+    },
   },
 
   // Prevent errors for webpack's `DefinePlugin` method when declaring
   // global constants.  Note: in this application, it is declared via
   // the `webpack.parts` file with the method `setFreeVariable`
-  // globals: {
-  //   API_URL: true
-  // },
+  globals: {
+    // Jest globals from `test/jest-setup.js`.
+    shallow: true,
+    render: true,
+    mount: true,
+  },
 
   rules: {
-    // eslint-plugin-prettier
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
         semi: false,
-        trailingComma: 'none', // none, es5, all
+        trailingComma: 'all',
         bracketSpacing: true,
-        jsxBracketSameLine: false
-      }
+        jsxBracketSameLine: false,
+      },
     ],
     // http://eslint.org/docs/rules/
     'array-callback-return': 'warn',
     'default-case': ['warn', { commentPattern: '^no default$' }],
     'dot-location': ['warn', 'property'],
-    // eqeqeq: ['warn', 'allow-null'],
     'new-parens': 'warn',
     'no-array-constructor': 'warn',
     'no-caller': 'warn',
@@ -145,10 +152,10 @@ const options = {
           ['&', '|', '^', '~', '<<', '>>', '>>>'],
           ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
           ['&&', '||'],
-          ['in', 'instanceof']
+          ['in', 'instanceof'],
         ],
-        allowSamePrecedence: false
-      }
+        allowSamePrecedence: false,
+      },
     ],
     'no-multi-str': 'warn',
     'no-native-reassign': 'warn',
@@ -181,24 +188,24 @@ const options = {
       {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: true
-      }
+        allowTaggedTemplates: true,
+      },
     ],
     'no-unused-labels': 'warn',
     'no-unused-vars': [
       'warn',
       {
         args: 'none',
-        ignoreRestSiblings: true
-      }
+        ignoreRestSiblings: true,
+      },
     ],
     'no-use-before-define': [
       'warn',
       {
         functions: false,
         classes: false,
-        variables: false
-      }
+        variables: false,
+      },
     ],
     'no-useless-computed-key': 'warn',
     'no-useless-concat': 'warn',
@@ -209,8 +216,8 @@ const options = {
       {
         ignoreDestructuring: false,
         ignoreImport: false,
-        ignoreExport: false
-      }
+        ignoreExport: false,
+      },
     ],
     'no-with': 'warn',
     'no-whitespace-before-property': 'warn',
@@ -227,8 +234,8 @@ const options = {
         object: 'System',
         property: 'import',
         message:
-          'Please use import() instead. More info: https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting'
-      }
+          'Please use import() instead. More info: https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting',
+      },
     ],
 
     // https://github.com/benmosher/eslint-plugin-import/tree/master/docs/rules
@@ -245,8 +252,8 @@ const options = {
       'warn',
       {
         allowAllCaps: true,
-        ignore: []
-      }
+        ignore: [],
+      },
     ],
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
@@ -280,8 +287,6 @@ const options = {
     'jsx-a11y/no-redundant-roles': 'warn',
     'jsx-a11y/role-has-required-aria-props': 'warn',
     'jsx-a11y/role-supports-aria-props': 'warn',
-    'jsx-a11y/scope': 'warn'
-  }
+    'jsx-a11y/scope': 'warn',
+  },
 }
-
-module.exports = options
