@@ -4,6 +4,7 @@ import CompressionPlugin from 'compression-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkManifestHtmlWebpackPlugin from 'inline-chunk-manifest-html-webpack-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import WebpackChunkHash from 'webpack-chunk-hash'
 
 import { isVendor } from './helpers'
@@ -29,6 +30,38 @@ export default function productionWebpack() {
       hints: 'warning',
       maxAssetSize: 100000,
       maxEntrypointSize: 100000,
+    },
+    optimization: {
+      concatenateModules: true,
+      namedModules: true,
+      namedChunks: true,
+      providedExports: true,
+      removeEmptyChunks: true,
+      sideEffects: true,
+      usedExports: true,
+      splitChunks: {
+        chunks: 'all', // 'all', 'async', 'initial',
+        minSize: 30000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        automaticNameDelimiter: '~',
+        name: true,
+        cacheGroups: {
+          vendors: {
+            filename: '[name].bundle.js',
+            priority: -10,
+            reuseExistingChunk: true,
+            test: /[\\/]node_modules[\\/]/,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
+      },
     },
     module: {
       rules: [
@@ -152,22 +185,17 @@ export default function productionWebpack() {
       //   name: 'manifest',
       //   chunks: ['app', 'vendor'],
       // }),
-      // JavaScript minification
-      new webpack.optimize.UglifyJsPlugin({
-        beautify: false,
-        mangle: {
-          screw_ie8: true,
-          keep_fnames: true,
-        },
-        compress: {
-          screw_ie8: true,
-          unused: true,
-          dead_code: true, // discard unreachable code
-          drop_debugger: true, // discard debugger statements
-          warnings: false, // warn about potentially dangerous optimizations/code
-        },
-        sourceMap: true,
-        comments: false,
+      new UglifyJsPlugin({
+        extractComments: true,
+        warnings: false,
+        // parse: {},
+        // compress: {},
+        mangle: true, // Note `mangle.properties` is `false` by default.
+        output: null,
+        toplevel: false,
+        nameCache: null,
+        ie8: false,
+        keep_fnames: false,
       }),
       // Keeps the same [chunkhashes] for vendor and manifest files...
       new webpack.HashedModuleIdsPlugin(),

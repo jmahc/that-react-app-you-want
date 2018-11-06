@@ -44,6 +44,7 @@ export default function developmentWebpack() {
             //          /\.(sass|scss)$/
             //        to prevent a '.sass' file from being generated
             //        and therefore, excluded from the application.
+            /\.svg$/,
             /\.ejs$/,
           ],
           loader: 'file-loader',

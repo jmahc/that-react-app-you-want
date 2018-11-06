@@ -1,33 +1,25 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-// import Button from '@/components/Button'
-// import Icon from '@/components/Icon'
+import Button from '@/components/Button'
+import Icon from '@/components/Icon'
 
-/*
-  - Uncommenting the line below will break the linter.
-  - However, if you do include it, you will notice that when building,
-    `purifycss` removes any unused CSS.
- */
-// import PurifiedCss from '@/containers/PurifiedCss'
+import { AppContainer, AppHeader, AppIntro, AppTitle } from './styles'
 
-// import './styles.css'
-
-class App extends Component {
+export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <p>Hey nick!</p>
-        <div className="App-header">
-          <h2>this is that-react-app-you-want.</h2>
-        </div>
-        <p className="App-intro">
+      <AppContainer>
+        <AppHeader>
+          <Icon />
+          <h2 className={AppTitle}>this is that-react-app-you-want.</h2>
+        </AppHeader>
+        <p className={AppIntro}>
           Run the <code>build</code> command to check out <code>purifycss</code>{' '}
           or click the button for some chunks & lazy loading.
         </p>
         <br />
-      </div>
+        <Button />
+      </AppContainer>
     )
   }
 }
-
-export default App

@@ -17,6 +17,7 @@ module.exports = {
     '@babel/plugin-proposal-export-namespace-from',
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-export-default-from',
+    'babel-plugin-emotion',
     [
       '@babel/transform-runtime',
       {

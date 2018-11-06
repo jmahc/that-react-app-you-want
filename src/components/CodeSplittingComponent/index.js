@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './styles.css'
+import { CodeSplittingButton } from './styles'
 
 const CodeSplittingComponent = ({ text }) => (
-  <div>
-    <button className="CodeSplittingComponent-button">{text}</button>
-  </div>
+  <CodeSplittingButton>{text}</CodeSplittingButton>
 )
 
 CodeSplittingComponent.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
 }
 
 export default CodeSplittingComponent

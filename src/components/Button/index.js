@@ -1,56 +1,57 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-import '@/components/Button/styles.css'
+import { ButtonBig, ButtonContainer } from './styles'
 
-class Button extends Component {
+export default class Button extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      Component: null,
-      lazyText: null
+      CodeSplitComponent: null,
+      lazyText: null,
     }
   }
+
   handleOnClick() {
     /**
      * Import the "lazy" text from the component file using the `import()` ES6 proposal syntax.
      */
-    import('@/components/CodeSplittingComponent/lazyText' /* webpackChunkName: "LazyText" */)
-      /**
-       * Pass the "lazy text" to the next `then` method to only `this.setState()` once
-       * and trimming down the number of times that the component renders.
-       */
-      .then(lazyTextResponse => lazyTextResponse)
-      .then(lazyText => {
-        import('@/components/CodeSplittingComponent' /* webpackChunkName: "CodeSplittingComponent" */).then(
-          LoadedComponent => {
-            /**
-             * Set the state for the component and text using the default exports.
-             */
-            this.setState({
-              Component: LoadedComponent.default,
-              lazyText: lazyText.default
-            })
-          }
-        )
-      })
+    return (
+      import('@/components/CodeSplittingComponent/lazyText' /* webpackChunkName: "LazyText" */)
+        /**
+         * Pass the "lazy text" to the next `then` method to only `this.setState()` once
+         * and trimming down the number of times that the component renders.
+         */
+        .then(lazyTextResponse => lazyTextResponse.lazyText)
+        .then(lazyText => {
+          import('@/components/CodeSplittingComponent' /* webpackChunkName: "CodeSplittingComponent" */).then(
+            LoadedComponent => {
+              /**
+               * Set the state for the component and text using the default export from the `LoadedComponent
+               */
+              this.setState({
+                CodeSplitComponent: LoadedComponent.default,
+                lazyText,
+              })
+            },
+          )
+        })
+    )
   }
 
   render() {
-    const { Component, lazyText } = this.state
+    const { CodeSplitComponent, lazyText } = this.state
 
     return (
-      <div>
-        {Component ? (
-          <Component lazyText={lazyText} />
+      <ButtonContainer>
+        {CodeSplitComponent ? (
+          <CodeSplitComponent text={lazyText} />
         ) : (
-          <button className="Button-big" onClick={() => this.handleOnClick()}>
+          <ButtonBig onClick={() => this.handleOnClick()}>
             Click here to code split, yo!
-          </button>
+          </ButtonBig>
         )}
-      </div>
+      </ButtonContainer>
     )
   }
 }
-
-export default Button

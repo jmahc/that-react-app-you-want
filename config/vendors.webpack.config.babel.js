@@ -28,12 +28,13 @@ export default function vendorsWebpack() {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new webpack.DllPlugin({
         context: __dirname,
+        format: true,
+        name: '[name]_[hash]',
         path: path.resolve(
           basePath,
           'node_modules/@that-react-app-you-want/dll',
           '[name]-manifest.json',
         ),
-        name: '[name]_[hash]',
       }),
     ],
     optimization: {

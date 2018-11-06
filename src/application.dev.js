@@ -16,6 +16,7 @@ const renderApplication = ApplicationComponent => {
     <AppContainer {...noHoist}>
       <ApplicationComponent />
     </AppContainer>,
+    // Targets the `div` element with the target ID
     document.getElementById('⚛'),
   )
 }

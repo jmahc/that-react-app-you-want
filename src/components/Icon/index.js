@@ -1,9 +1,10 @@
 import React from 'react'
+
 // % resolves to `src/shared/`
-import logo from '%/assets/logos/logo.svg'
+import logo from '%/assets/svg/logo.svg'
 
-import './styles.css'
+import { IconLogo } from './styles'
 
-const Icon = () => <img src={logo} className="Icon-logo" alt="logo" />
+const Icon = () => <IconLogo alt="logo" src={logo} />
 
 export default Icon
