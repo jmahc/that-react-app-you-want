@@ -60,15 +60,14 @@ module.exports = {
           {
             // modules: false,
             // shippedProposals: true,
-            targets: {
-              node: 'current',
-            },
+            // targets: {
+            //   node: 'current',
+            // },
             // useBuiltIns: 'usage',
           },
         ],
         '@babel/preset-react',
       ],
-      plugins: ['react-hot-loader/babel'],
     },
     test: {
       presets: [

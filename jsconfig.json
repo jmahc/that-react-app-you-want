@@ -1,15 +1,12 @@
 {
-  // This file is required for VSCode to understand webpack aliases.
   "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
     "baseUrl": ".",
     "paths": {
-      // "*": ["src/*"]
-      "@/*": ["src/*"],
-      "%/*": ["src/shared/*"],
-      "#/*": ["src/shared/styles/*"]
-    },
-    "jsx": "react"
+      "@/*": ["./src/*"],
+      "%/*": ["./src/shared/*"]
+    }
   },
-  "include": [".storybook/**/*.js", "src/**/*.js"],
-  "exclude": ["dll", "node_modules", "dist"]
+  "include": ["src/**/*"]
 }

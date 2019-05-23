@@ -1,0 +1,60 @@
+{
+  "comments": false,
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 Chrome versions"]
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-namespace-from",
+    [
+      "transform-imports",
+      {
+        "react-material-icon-svg": {
+          "transform": "react-material-icon-svg/dist/${member}",
+          "preventFullImport": true
+        }
+      }
+    ],
+    "@babel/transform-react-constant-elements",
+    [
+      "@babel/transform-runtime",
+      {
+        "helpers": false,
+        "regenerator": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@": ["./src"],
+          "%": ["./shared"],
+          "_stories": ["./.storybook"],
+          "settings": ["./packages/vision/src/shared/styles"],
+          "test": ["./packages/test-utils/src"]
+        },
+        "cwd": "babelrc",
+        "extensions": [".js", ".jsx", ".es", ".es6", ".mjs", ".css"]
+      }
+    ],
+    "dynamic-import-node",
+    "babel-plugin-styled-components"
+  ],
+  "env": {
+    "DEVELOPMENT": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
+}
