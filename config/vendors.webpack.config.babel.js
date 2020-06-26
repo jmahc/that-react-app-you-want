@@ -7,12 +7,8 @@ import webpack from 'webpack'
  * for instructions on resolving the errors by excluding the
  * vendor dependency that is throwing an error.
  */
-import {
-  vendorEntries
-} from './dependencies.babel'
-import {
-  dllPrefix
-} from './constants'
+import { vendorEntries } from './dependencies.babel'
+import { dllPrefix } from './constants'
 
 export default function vendorsWebpack() {
   const basePath = process.cwd()
@@ -23,7 +19,7 @@ export default function vendorsWebpack() {
     target: 'web',
     mode: 'development',
     entry: {
-      vendors: vendorEntries
+      vendors: vendorEntries,
     },
     output: {
       path: path.join(basePath, 'node_modules', dllPrefix),
@@ -44,10 +40,10 @@ export default function vendorsWebpack() {
       }),
     ],
     optimization: {
-      minimize: false
+      minimize: false,
     },
     performance: {
-      hints: false
+      hints: false,
     },
   }
 }

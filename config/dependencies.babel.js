@@ -1,6 +1,4 @@
-import {
-  dependencies
-} from '../package.json'
+import { dependencies } from '../package.json'
 
 /**
  * Exclude any package.json dependencies that throw errors here.

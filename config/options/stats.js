@@ -8,5 +8,5 @@ export const stats = {
   modules: false,
   publicPath: true,
   reasons: true,
-  warnings: true
+  warnings: true,
 }

@@ -7,7 +7,7 @@ import path from 'path'
 import webpack from 'webpack'
 
 import {
-  devServerConfig,
+  alias,
   devPerformanceOptions,
   nodeOptions,
   PATHS,
@@ -172,7 +172,7 @@ export default function developmentWebpack() {
         safe: false,
       }),
       new HtmlWebpackPlugin({
-        // chunksSortMode: 'auto',
+        chunksSortMode: 'auto',
         favicon: PATHS.favicon,
         filename: 'index.html',
         inject: true,
@@ -197,11 +197,7 @@ export default function developmentWebpack() {
       }),
     ],
     resolve: {
-      alias: {
-        '@': PATHS.appSrc,
-        '%': PATHS.sharedDir,
-        'react-dom': '@hot-loader/react-dom',
-      },
+      alias,
       aliasFields: ['browser'],
       descriptionFiles: ['package.json'],
       enforceExtension: false,

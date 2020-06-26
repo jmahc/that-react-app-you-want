@@ -1,9 +1,5 @@
-import {
-  stats
-} from './stats'
-import {
-  PATHS
-} from './paths'
+import { stats } from './stats'
+import { PATHS } from './paths'
 
 export const devServerConfig = () => {
   console.log('dev server config')

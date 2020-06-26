@@ -1,3 +1,3 @@
 export const devPerformanceOptions = {
-  hints: false
+  hints: false,
 }

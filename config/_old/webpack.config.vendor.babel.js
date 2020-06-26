@@ -5,7 +5,7 @@ import webpack from 'webpack'
  * for instructions on resolving the errors by excluding the
  * vendor dependency that is throwing an error.
  */
-import entries from './dependencies.babel'
+import entries from '../dependencies.babel'
 import PATHS from './paths'
 
 // NOTE: The library and the plugin's filename MUST match.
