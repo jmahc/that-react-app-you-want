@@ -67,7 +67,6 @@ typings/
 .vscode
 
 # Project-specific
-api/
 bin/
 build/
 .build/

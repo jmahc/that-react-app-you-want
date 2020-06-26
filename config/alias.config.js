@@ -1,4 +1,6 @@
-const PATHS = require('./paths')
+import {
+  PATHS
+} from './options'
 
 module.exports = {
   '@': PATHS.app,

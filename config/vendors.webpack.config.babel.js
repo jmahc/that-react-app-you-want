@@ -7,9 +7,12 @@ import webpack from 'webpack'
  * for instructions on resolving the errors by excluding the
  * vendor dependency that is throwing an error.
  */
-import { vendorEntries } from './dependencies.babel'
-
-const dllPrefix = '@jmahc/dll'
+import {
+  vendorEntries
+} from './dependencies.babel'
+import {
+  dllPrefix
+} from './constants'
 
 export default function vendorsWebpack() {
   const basePath = process.cwd()
@@ -19,7 +22,9 @@ export default function vendorsWebpack() {
     devtool: '#source-map',
     target: 'web',
     mode: 'development',
-    entry: { vendors: vendorEntries },
+    entry: {
+      vendors: vendorEntries
+    },
     output: {
       path: path.join(basePath, 'node_modules', dllPrefix),
       filename: '[name].dll.js',
@@ -33,12 +38,16 @@ export default function vendorsWebpack() {
         name: '[name]_[hash]',
         path: path.resolve(
           basePath,
-          'node_modules/' + dllPrefix,
+          `node_modules/${dllPrefix}`,
           '[name]-manifest.json',
         ),
       }),
     ],
-    optimization: { minimize: false },
-    performance: { hints: false },
+    optimization: {
+      minimize: false
+    },
+    performance: {
+      hints: false
+    },
   }
 }

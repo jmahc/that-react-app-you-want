@@ -1,4 +1,6 @@
-import { initializeEnv } from './config/helpers'
+import {
+  initializeEnv
+} from './config/helpers'
 
 if (
   process.env.NODE_ENV === 'development' ||

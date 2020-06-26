@@ -6,8 +6,13 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
 import webpack from 'webpack'
 
-import { PATHS } from './options'
-import { devServerConfig, stats } from './options'
+import {
+  devServerConfig,
+  devPerformanceOptions,
+  nodeOptions,
+  PATHS,
+  stats,
+} from './options'
 
 export default function developmentWebpack() {
   return {
@@ -26,7 +31,24 @@ export default function developmentWebpack() {
       pathinfo: true,
       publicPath: PATHS.publicPath,
     },
-    devServer: devServerConfig(),
+    // devServerConfig(),
+    devServer: {
+      compress: true,
+      historyApiFallback: true,
+      hot: true,
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
+      port: process.env.APP_PORT || 3000,
+      publicPath: PATHS.publicPath,
+      stats,
+      watchOptions: {
+        aggregateTimeout: 300,
+        ignored: /node_modules/,
+        poll: 1000,
+      },
+    },
     module: {
       rules: [
         {
@@ -38,6 +60,7 @@ export default function developmentWebpack() {
             /\.bmp$/,
             /\.gif$/,
             /\.jpe?g$/,
+            /\.ico$/,
             /\.png$/,
             // Add any "extraneous" files to this loader.
             // e.g.:  If `sass/scss` is used with `sass-loader`,
@@ -78,21 +101,33 @@ export default function developmentWebpack() {
           },
         },
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.css$/,
+          include: PATHS.appSrc,
+          exclude: /node_modules/,
           use: [
-            // Creates `style` nodes from JS strings
             'style-loader',
-            // Translates CSS into CommonJS
-            'css-loader',
-            // Compiles Sass to CSS
-            'sass-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+
+              options: {
+                config: {
+                  path: PATHS.postCssConfig,
+                },
+              },
+            },
           ],
         },
         {
           test: /\.js?$/,
           include: [PATHS.appSrc],
           exclude: [
-            /node_modules\/(?!@cli)/,
+            /node_modules\/(?!@jmahc)/,
             // Storybook.
             /.stories.js$/,
             /stories.js$/,
@@ -125,17 +160,6 @@ export default function developmentWebpack() {
         'APP_URL',
         'HOST_NAME',
         'OUTPUT_DIR',
-        'PGUSER',
-        'PGHOST',
-        'PGPASSWORD',
-        'PGDATABASE',
-        'PGPORT',
-        'JWT_ALGORITHM',
-        'JWT_AUDIENCE',
-        'JWT_EXPIRES',
-        'JWT_ISSUER',
-        'JWT_SECRET',
-        'EMAIL_FORGOT_PASSWORD_VALID_HOURS',
       ]),
       new webpack.DllReferencePlugin({
         context: __dirname,
@@ -144,11 +168,11 @@ export default function developmentWebpack() {
       new FriendlyErrorsPlugin(),
       new CaseSensitivePathsPlugin(),
       new Dotenv({
-        path: PATHS.dotenv.main,
+        path: PATHS.dotenv,
         safe: false,
       }),
       new HtmlWebpackPlugin({
-        chunksSortMode: 'auto',
+        // chunksSortMode: 'auto',
         favicon: PATHS.favicon,
         filename: 'index.html',
         inject: true,
@@ -165,7 +189,7 @@ export default function developmentWebpack() {
           useShortDoctype: true,
         },
         template: PATHS.indexHtml,
-        title: 'CLI',
+        title: 'That React App You Want',
       }),
       new AddAssetHtmlPlugin({
         filepath: PATHS.vendors.filepath,
@@ -190,21 +214,7 @@ export default function developmentWebpack() {
       // https://www.npmjs.com/package/directory-named-webpack-plugin
     },
     stats,
-    performance: {
-      hints: false,
-    },
-    node: {
-      console: false,
-      global: true,
-      process: true,
-      __filename: false,
-      __dirname: false,
-      Buffer: false,
-      setImmediate: false,
-      dgram: 'empty',
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty',
-    },
+    performance: devPerformanceOptions,
+    node: nodeOptions,
   }
 }

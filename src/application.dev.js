@@ -1,11 +1,14 @@
+import {
+  hot
+} from 'react-hot-loader/root'
 import React from 'react'
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 // @ resolves to `src/`
 import App from '@/containers/App'
 // # resolves to `src/shared/styles/`
-import '#/index.css'
+// import '#/index.css'
 
-const renderApplication = ApplicationComponent => {
+const renderApplication = (ApplicationComponent) => {
   const AppContainer = require('react-hot-loader').AppContainer
   // Trick babel to avoid hoisting `<AppContainer />`
   // via `babel-plugin-transform-react-constant-elements`.
@@ -16,7 +19,7 @@ const renderApplication = ApplicationComponent => {
     <AppContainer {...noHoist}>
       <ApplicationComponent />
     </AppContainer>,
-    document.getElementById('⚛')
+    document.getElementById('⚛'),
   )
 }
 
