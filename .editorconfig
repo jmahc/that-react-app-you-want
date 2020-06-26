@@ -1,31 +1,27 @@
 # EditorConfig helps developers define and maintain consistent
 # coding styles between different editors and IDEs
 # http://editorconfig.org/
-
 root = true
 
 [*]
-
-#
-# Personal preferences.
-#
-indent_size = 2
-indent_style = space
-
-#
 # Recommended preferences.
-#
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+# Personal preferences.
+indent_size = 2
+indent_style = space
 
-#
 # JSON, YAML, Markdown, .babelrc, .eslintrc, .linstagedrc, and .remarkrc files.
-#
 [*.{json,yml,md,babelrc,eslintrc,lintstagedrc,remarkrc}]
 indent_size = 2
 indent_style = space
 insert_final_newline = false
 max_line_length = 0
 trim_trailing_whitespace = false
+
+[.md]
+indent_size = 1
+indent_style = space
+trim_trailing_whitespace = true

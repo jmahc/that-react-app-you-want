@@ -3,14 +3,13 @@ const glob = require('glob')
 const path = require('path')
 
 const currentDir = process.cwd()
-
-// Ensure any symlinks in the project folder are resolved:
-const appDirectory = fs.realpathSync(currentDir)
-const resolvePath = relativePath => path.resolve(appDirectory, relativePath)
-
 const isProduction = process.env.NODE_ENV === 'production'
 
-const PATHS = {
+// Ensure any symlinks in the project folder are resolved:
+const appDir = fs.realpathSync(currentDir)
+export const resolvePath = relativePath => path.resolve(appDir, relativePath)
+
+export const PATHS = {
   app: resolvePath('src'),
   assets: resolvePath('src/shared/assets'),
   babelConfig: require(resolvePath('config/babel.config.js')),
@@ -26,11 +25,11 @@ const PATHS = {
   indexHtml: resolvePath('public/index.ejs'),
   nodeModules: resolvePath('node_modules'),
   packageJson: resolvePath('package.json'),
-  polyfills: resolvePath('config/helpers/polyfills'),
+  polyfills: resolvePath('config/polyfills'),
   postCssConfig: resolvePath('config/postcss.config.js'),
   public: resolvePath('public'),
   publicPath: isProduction ? './' : '/',
-  purifyCssPaths: glob.sync(`${resolvePath('src')}/**/*.js`),
+  purifyCssPaths: glob.sync(`${resolvePath('src')}/**/*.js`), // glob.sync(`${PATHS.app}/**/*.js`),
   root: currentDir,
   shared: resolvePath('src/shared'),
   styles: resolvePath('src/shared/styles'),
@@ -38,5 +37,3 @@ const PATHS = {
   vendorManifest: resolvePath('dll/vendors-manifest.json'),
   yarnLockFile: resolvePath('yarn.lock')
 }
-
-module.exports = PATHS

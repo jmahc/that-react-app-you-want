@@ -6,7 +6,7 @@ import App from '@/containers/App'
 import '#/index.css'
 
 const renderApplication = ApplicationComponent =>
-  render(<ApplicationComponent />, document.getElementById('root'))
+  render(<ApplicationComponent />, document.getElementById('⚛'))
 
 // Render the application.
 renderApplication(App)

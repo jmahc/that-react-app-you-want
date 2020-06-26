@@ -1,4 +1,4 @@
-const options = {
+module.exports = {
   configBasedir: './',
   extends: 'stylelint-config-recommended' //,
   // plugins: ['stylelint-scss'],
@@ -6,5 +6,3 @@ const options = {
   //   'double-slash-comment-inline': 'never'
   // }
 }
-
-module.exports = options

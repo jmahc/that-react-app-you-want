@@ -16,7 +16,7 @@ const renderApplication = ApplicationComponent => {
     <AppContainer {...noHoist}>
       <ApplicationComponent />
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('⚛')
   )
 }
 
