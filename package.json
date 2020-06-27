@@ -39,6 +39,7 @@
     "@babel/register": "^7.10.3",
     "@babel/runtime": "^7.10.3",
     "@hot-loader/react-dom": "^16.13.0",
+    "@loadable/component": "^5.12.0",
     "@webpack-contrib/defaults": "^6.3.0",
     "add-asset-html-webpack-plugin": "^3.1.3",
     "autodll-webpack-plugin": "^0.4.2",

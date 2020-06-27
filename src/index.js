@@ -1,12 +1,18 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from '@/containers/App'
 
 import '#/index.css'
 
 const renderApplication = (ApplicationComponent) =>
-  render(<ApplicationComponent />, document.getElementById('⚛'))
+  ReactDOM.render(
+    <Router>
+      <ApplicationComponent />
+    </Router>,
+    document.getElementById('⚛'),
+  )
 
 // Render the application.
 renderApplication(App)

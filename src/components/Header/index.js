@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Icon from '@/components/Icon'
 
@@ -11,17 +11,19 @@ export default function Header() {
       <Icon />
       <h2>This is that React app that you want</h2>
       <br />
-      <ul className="Header-links">
-        <li>
-          <NavLink to="/home">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/private">Private</NavLink>
-        </li>
-        <li>
-          <NavLink to="/not-a-page">Not a page</NavLink>
-        </li>
-      </ul>
+      <nav className="Header-links">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/private">Private</Link>
+          </li>
+          <li>
+            <Link to="/not-a-page">Not a page</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   )
 }
