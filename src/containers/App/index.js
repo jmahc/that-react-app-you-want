@@ -1,29 +1,44 @@
 import { hot } from 'react-hot-loader/root'
 import React, { Component } from 'react'
+import Loadable from 'react-loadable'
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  Redirect,
+} from 'react-router-dom'
 
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
+import Header from '@/components/Header'
+import Loading from '@/components/Loading'
+
+import { PublicRoute, NoMatchRoute, PrivateRoute } from '@/containers/Routes'
 
 import './styles.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <Icon />
-          <h2> this is that react app you want. </h2>
-        </div>
-        <p className="App-intro">
-          Run the <code> build </code> command to check out
-          <code>purifycss</code> or click the button for some chunks & lazy
-          loading.
-        </p>
-        <br />
-        <Button />
-      </div>
-    )
-  }
+const Home = Loadable({
+  loader: () => import(/** webpackChunkName: HomeScene */ '@/scenes/Home'),
+  loading: Loading,
+})
+
+const Private = Loadable({
+  loader: () =>
+    import(/** webpackChunkName: PrivateScene */ '@/scenes/Private'),
+  loading: Loading,
+})
+
+const App = function () {
+  return (
+    <div className="App">
+      <Router>
+        <Switch key="app">
+          <Header />
+          <PublicRoute component={Home} exact path="/home" />
+          <PrivateRoute component={Private} exact path="/private" />
+          <Route component={NoMatchRoute} path="*" />
+        </Switch>
+      </Router>
+    </div>
+  )
 }
 
 export default hot(App)

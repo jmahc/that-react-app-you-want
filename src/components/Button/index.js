@@ -1,14 +1,11 @@
-import React, { Component, useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 
-import '@/components/Button/styles.css'
+import './styles.css'
 
 export default function Button() {
   const [buttonClickCount, setButtonClickCount] = useState(0)
 
-  const handleOnClick = () => {
-    console.log('handle on clikc')
-    setButtonClickCount(buttonClickCount + 1)
-  }
+  const handleOnClick = () => setButtonClickCount(buttonClickCount + 1)
 
   return (
     <Fragment>

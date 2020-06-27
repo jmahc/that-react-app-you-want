@@ -23,3 +23,16 @@ textarea {
   color: var(--color-black);
   font-family: var(--font-copy);
 }
+
+h2 {
+  color: var(--color-white);
+}
+
+a {
+  color: var(--color-white);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
