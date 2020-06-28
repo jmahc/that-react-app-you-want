@@ -31,8 +31,8 @@ Now featuring **react@16.0.0**.
 
 You even have options to decide what you want to use!
 
-* The [master branch] branch contains a simple react application.
-* The [redux branch] branch implements [redux] alongside the simple react
+- The [master branch] branch contains a simple react application.
+- The [redux branch] branch implements [redux] alongside the simple react
   application.
 
 ---
@@ -62,11 +62,11 @@ Steps for you [yarn] losers:
 
 **OPTIONAL**
 
-* `yarn run clean-all` - Removes any production-built files, DLL files,
+- `yarn run clean-all` - Removes any production-built files, DLL files,
   installed dependencies and any `lock` files.
-* `yarn run clean-dist` - Removes any production-built files.
-* `yarn run clean-dll` - Removes any DLL files.
-* `yarn run clean-yarn` - Removes any [yarn]-specific files, including
+- `yarn run clean-dist` - Removes any production-built files.
+- `yarn run clean-dll` - Removes any DLL files.
+- `yarn run clean-yarn` - Removes any [yarn]-specific files, including
   dependencies.
 
 ---
@@ -81,13 +81,13 @@ Steps for you [yarn] losers:
 3. `yarn run start` or `yarn run dev` - Starts the development server.
 4. `yarn run build:win` - Builds the application for production.
 
-**OPTIONAL**
+#### Optional
 
-* `yarn run clean:all` - Removes any production-built files, DLL files,
+- `yarn run clean:all` - Removes any production-built files, DLL files,
   installed dependencies and any `lock` files.
-* `yarn run clean:dist` - Removes any production-built files.
-* `yarn run clean:dll` - Removes any DLL files.
-* `yarn run clean:yarn` - Removes any [yarn]-specific files, including
+- `yarn run clean:dist` - Removes any production-built files.
+- `yarn run clean:dll` - Removes any DLL files.
+- `yarn run clean:yarn` - Removes any [yarn]-specific files, including
   dependencies.
 
 ---
@@ -97,9 +97,9 @@ Steps for you [yarn] losers:
 This is what I use. Feel free to change `.node-version`, `.nvmrc` and the
 `package.json` file's engines to suit your needs.
 
-* [NodeJS] with: `>=8.0.0`
-* [npm] with: `>=5.0.0`
-* [yarn] with: `>=1.0.0`
+- [NodeJS] with: `>=8.0.0`
+- [npm] with: `>=5.0.0`
+- [yarn] with: `>=1.0.0`
 
 ---
 
@@ -107,37 +107,37 @@ This is what I use. Feel free to change `.node-version`, `.nvmrc` and the
 
 Some really cool things:
 
-* `webpack v3.10.0`
-* prettier formatting
-* webpack but you can use ES6 syntax
-* chunks
-* jsx
-* Code-splitting aka importin' shit on the fly
-* Tree-shaking for money-makers
-* DLL's for faster build times
-* PostCSS
-* PurifyCSS
-* hot reloadin'
-* react
-* (optional) favicon generaton
-* (optional) preloading/prefetching
-* and last but not least: [generact]! Check that out, it's dope.
-* sample `travis.yml` file
+- `webpack v3.10.0`
+- prettier formatting
+- webpack but you can use ES6 syntax
+- chunks
+- jsx
+- Code-splitting aka importin' shit on the fly
+- Tree-shaking for money-makers
+- DLL's for faster build times
+- PostCSS
+- PurifyCSS
+- hot reloadin'
+- react
+- (optional) favicon generaton
+- (optional) preloading/prefetching
+- and last but not least: [generact]! Check that out, it's dope.
+- sample `travis.yml` file
 
 ---
 
 ## Todos
 
-* Implement testing
-* Add an optional `redux` branch. _in progress as of August 4, 2017_
-* Add an optional `react-router v4` branch.
-* Add an optional authentication process.
+- Implement testing
+- Add an optional `redux` branch. _in progress as of August 4, 2017_
+- Add an optional `react-router v4` branch.
+- Add an optional authentication process.
 
 ---
 
 ### Issues
 
-* None as of now :)
+- None as of now :)
 
 ---
 
@@ -297,7 +297,7 @@ Thanks goes to these wonderful people
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 
-| [<img src="https://avatars0.githubusercontent.com/u/5778136?v=3" width="100px;"/><br /><sub>Jordan McArdle</sub>](http://mcardle.tech/)<br />[💻](https://github.com/jmahc/that-react-app-you-want/commits?author=jmahc "Code") [📖](https://github.com/jmahc/that-react-app-you-want#README "Documentation") |
+| [<img src="https://avatars0.githubusercontent.com/u/5778136?v=3" width="100px;"/><br /><sub>Jordan McArdle</sub>](http://mcardle.tech/)<br />[💻](https://github.com/jmahc/that-react-app-you-want/commits?author=jmahc 'Code') [📖](https://github.com/jmahc/that-react-app-you-want#README 'Documentation') |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
 
