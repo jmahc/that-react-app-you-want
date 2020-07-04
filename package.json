@@ -3,15 +3,10 @@
   "version": "0.2.20",
   "description": "That react app boilerplate that you always wanted. Highly opinionated...but you better like it.",
   "main": "index.js",
-  "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
-  },
   "scripts": {
     "build": "npm run clean:dist && cross-env NODE_ENV=production webpack -p --profile --progress --env production --config ./webpack.config.babel.js",
-    "clean": "npm run clean:dist && npm run clean:ds && npm run clean:modules",
-    "clean:dist": "rm -rf ./dist",
-    "clean:ds": "rm -rf ./**/*.DS_STORE ./.DS_STORE",
+    "clean": "npm run clean:dist && npm run clean:modules",
+    "clean:dist": "rm -rf ./dist ./**/*.DS_STORE ./.DS_STOR",
     "clean:modules": "rm -rf ./node_modules",
     "dev": "cross-env NODE_ENV=vendors webpack --profile --progress --env vendors --config ./webpack.config.babel.js",
     "format": "prettier-standard 'src/**/*.js'",
@@ -21,6 +16,19 @@
     "release": "standard-version",
     "start": "cross-env NODE_ENV=development webpack-dev-server --env development --open",
     "test": "echo \"No test specified.\""
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
@@ -106,20 +114,16 @@
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^4.2.2"
   },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "normalize.css": "^8.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-loadable": "^5.5.0",
-    "react-router-dom": "^5.2.0"
-  },
   "optionalDependencies": {
     "fsevents": "*"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
+  },
+  "authors": {
+    "name": "Jordan McArdle",
+    "email": "jordanmcardle@gmail.com",
+    "url": "https://github.com/jmahc"
   },
   "repository": {
     "type": "git",
@@ -128,44 +132,5 @@
   "bugs": {
     "url": "https://github.com/jmahc/that-react-app-you-want/issues"
   },
-  "license": "MIT",
-  "keywords": [
-    "babel",
-    "babelJS",
-    "boilerplate",
-    "chunk",
-    "chunking",
-    "chunks",
-    "ci",
-    "code-splitting",
-    "DLL",
-    "DllPlugin",
-    "DllReferencePlugin",
-    "es6",
-    "eslint",
-    "favicon-generator",
-    "generact",
-    "hot-loader",
-    "manifest",
-    "mobile-icons",
-    "postcss",
-    "prefetch",
-    "preload",
-    "purifycss",
-    "react",
-    "react-dom",
-    "starterkit",
-    "that-react-app-you-want",
-    "travis",
-    "travis-ci",
-    "travisci",
-    "tree-shaking",
-    "webpack",
-    "webpackDLL"
-  ],
-  "authors": {
-    "name": "Jordan McArdle",
-    "email": "jordanmcardle@gmail.com",
-    "url": "https://github.com/jmahc"
-  }
+  "license": "MIT"
 }
