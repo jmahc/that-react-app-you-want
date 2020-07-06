@@ -66,9 +66,12 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          '@': ['./app/src'],
-          '%': ['./app/src/shared'],
-          _stories: ['./config/storybook'],
+          '@': ['./src'],
+          '%': ['./src/shared'],
+          '#': ['./src/shared/styles'],
+          '@constants': ['./src/constants'],
+          '@helpers': ['./src/helpers'],
+          '@utils': ['./src/utils'],
         },
       },
     ],

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import Icon from '@/components/Icon'
 
@@ -14,13 +14,19 @@ export default function Header() {
       <nav className="Header-links">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/home">Home</NavLink>
           </li>
           <li>
-            <Link to="/private">Private</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/not-a-page">Not a page</Link>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/private">Private</NavLink>
+          </li>
+          <li>
+            <NavLink to="/not-a-page">Not a page</NavLink>
           </li>
         </ul>
       </nav>

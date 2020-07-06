@@ -1,8 +1,6 @@
 :root {
-  --color-black: rgb(0, 0, 0);
-
   --rotation-start: 0deg;
-  --rotation-end: 0deg;
+  --rotation-end: 360deg;
 }
 
 @keyframes Icon-logo-spin {

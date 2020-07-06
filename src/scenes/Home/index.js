@@ -1,10 +1,10 @@
 import React from 'react'
 
-// import Button from '@/components/Button'
+import Button from '@/components/Button'
 
 import './styles.css'
 
-const Home = () => {
+export default function Home() {
   return (
     <div className="Home">
       <p>
@@ -13,9 +13,7 @@ const Home = () => {
         loading.
       </p>
       <br />
-      {/* <Button /> */}
+      <Button />
     </div>
   )
 }
-
-export default Home

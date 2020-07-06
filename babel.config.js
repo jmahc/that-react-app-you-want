@@ -36,6 +36,7 @@ module.exports = {
         alias: {
           '@': ['./src'],
           '%': ['./src/shared'],
+          '#': ['./src/shared/styles'],
           '@constants': ['./src/constants'],
           '@helpers': ['./src/helpers'],
           '@utils': ['./src/utils'],
