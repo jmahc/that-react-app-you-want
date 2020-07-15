@@ -3,6 +3,10 @@
   padding: 20px;
 }
 
+.Header-links {
+  text-align: center;
+}
+
 ul {
   list-style: none;
   text-align: center;

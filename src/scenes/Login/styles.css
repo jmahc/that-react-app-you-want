@@ -1,5 +1,10 @@
-.Private {
+.Login {
   h2 {
     color: var(--color-black);
   }
+}
+
+.btn {
+  width: 50px;
+  height: 20px;
 }
