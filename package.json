@@ -1,6 +1,6 @@
 {
   "name": "that-react-app-you-want",
-  "version": "0.2.21",
+  "version": "0.3.0",
   "description": "That react app boilerplate that you always wanted. Highly opinionated...but you better like it.",
   "main": "index.js",
   "scripts": {
