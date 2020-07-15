@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/jmahc/that-react-app-you-want/compare/v0.3.0...v0.3.1) (2020-07-15)
+
 ## [0.3.0](https://github.com/jmahc/that-react-app-you-want/compare/v0.2.21...v0.3.0) (2020-07-15)
 
 ### [0.2.21](https://github.com/jmahc/that-react-app-you-want/compare/v0.2.20...v0.2.21) (2020-07-15)
