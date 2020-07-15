@@ -1,0 +1,21 @@
+.Header {
+  background-color: #222;
+  padding: 20px;
+}
+
+.Header-links {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}

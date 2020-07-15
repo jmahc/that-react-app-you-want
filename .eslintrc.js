@@ -58,7 +58,7 @@ var restrictedGlobals = [
   'statusbar',
   'stop',
   'toolbar',
-  'top'
+  'top',
 ]
 
 const options = {
@@ -73,7 +73,7 @@ const options = {
     commonjs: true,
     es6: true,
     jest: true,
-    node: true
+    node: true,
   },
 
   parserOptions: {
@@ -90,9 +90,9 @@ const options = {
   // Prevent errors for webpack's `DefinePlugin` method when declaring
   // global constants.  Note: in this application, it is declared via
   // the `webpack.parts` file with the method `setFreeVariable`
-  // globals: {
-  //   API_URL: true
-  // },
+  globals: {
+    API_URL: true
+  },
 
   rules: {
     // eslint-plugin-prettier
@@ -254,33 +254,14 @@ const options = {
     'react/no-deprecated': 'warn',
     'react/no-direct-mutation-state': 'warn',
     'react/no-is-mounted': 'warn',
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+    'react/prop-types': [2, {}],
     'react/react-in-jsx-scope': 'error',
     'react/require-render-return': 'error',
     'react/style-prop-object': 'warn',
 
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
-
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
-    'jsx-a11y/accessible-emoji': 'warn',
-    'jsx-a11y/alt-text': 'warn',
-    'jsx-a11y/anchor-has-content': 'warn',
-    'jsx-a11y/aria-activedescendant-has-tabindex': 'warn',
-    'jsx-a11y/aria-props': 'warn',
-    'jsx-a11y/aria-proptypes': 'warn',
-    'jsx-a11y/aria-role': 'warn',
-    'jsx-a11y/aria-unsupported-elements': 'warn',
-    'jsx-a11y/heading-has-content': 'warn',
-    // This was throwing a wild error
-    // 'jsx-a11y/href-no-hash': 'warn',
-    'jsx-a11y/iframe-has-title': 'warn',
-    'jsx-a11y/img-redundant-alt': 'warn',
-    'jsx-a11y/no-access-key': 'warn',
-    'jsx-a11y/no-distracting-elements': 'warn',
-    'jsx-a11y/no-redundant-roles': 'warn',
-    'jsx-a11y/role-has-required-aria-props': 'warn',
-    'jsx-a11y/role-supports-aria-props': 'warn',
-    'jsx-a11y/scope': 'warn'
   }
 }
 

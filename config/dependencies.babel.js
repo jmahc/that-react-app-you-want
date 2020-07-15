@@ -1,18 +1,13 @@
-import packageJson from '../package.json'
+import { dependencies } from '../package.json'
 
 /**
- * Exclude any package.json dependencies (e.g. `normalize.css`)
- * that throw errors here.
+ * Exclude any package.json dependencies that throw errors here.
  */
-const ignored = ['normalize.css']
+const ignored = [
+  //
+  'normalize.css',
+]
 
-function getVendorDependencies() {
-  let dependencies = []
-
-  Object.keys(packageJson.dependencies).filter(
-    key => (ignored.indexOf(key) === -1 ? dependencies.push(key) : null)
-  )
-  return dependencies
-}
-
-export default getVendorDependencies()
+export const vendorEntries = Object.keys(dependencies).filter(
+  (key) => !ignored.includes(key),
+)

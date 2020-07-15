@@ -2,28 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
-  <!-- Open graph -->
-  <meta property="og:title" content="<%= htmlWebpackPlugin.options.seo.title %>" />
-  <meta property="og:url" content="<%= htmlWebpackPlugin.options.seo.url %>" />
-  <meta property="og:image" content="<%= htmlWebpackPlugin.options.seo.image %>" />
-  <meta property="og:description" content="<%= htmlWebpackPlugin.options.seo.description %>" />
+  <base href="/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <!-- generics -->
+  <link rel="icon" href="/favicon/favicon.ico" sizes="16x16">
+  <link rel="icon" href="/favicon/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/favicon/favicon-57.png" sizes="57x57">
+  <link rel="icon" href="/favicon/favicon-76.png" sizes="76x76">
+  <link rel="icon" href="/favicon/favicon-96.png" sizes="96x96">
+  <link rel="icon" href="/favicon/favicon-128.png" sizes="128x128">
+  <link rel="icon" href="/favicon/favicon-192.png" sizes="192x192">
+  <link rel="icon" href="/favicon/favicon-228.png" sizes="228x228">
+
+  <!-- Android -->
+  <link rel="shortcut icon" sizes="196x196" href="/favicon/favicon-196.png">
+
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/favicon/favicon-120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="/favicon/favicon-152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="/favicon/favicon-180.png" sizes="180x180">
 </head>
 
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="root"></div>
+  <div id="⚛"></div>
   <!-- Injects the manifest.json file -->
   <%= htmlWebpackPlugin.files.webpackManifest %>
-    <!-- Injects the manifest.[hash].js file -->
-    <%= htmlWebpackPlugin.files.manifest %>
+  <!-- Injects the manifest.[hash].js file -->
+  <%= htmlWebpackPlugin.files.manifest %>
 </body>
 
 </html>

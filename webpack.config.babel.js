@@ -1,15 +1,30 @@
-import merge from 'webpack-merge'
+import {
+  initializeEnv
+} from './config/helpers'
 
-import commonsConfig from './config/webpack.config.commons.babel'
+if (
+  process.env.NODE_ENV === 'development' ||
+  process.env.NODE_ENV === 'production'
+) {
+  initializeEnv()
+}
 
-export default async function webpackConfig(env) {
-  return env === 'production'
-    ? merge(
-        commonsConfig,
-        await require('./config/webpack.config.production.babel').default
-      )
-    : merge(
-        commonsConfig,
-        await require('./config/webpack.config.development.babel').default
-      )
+export default async function startWebpack(env) {
+  console.log('startWebpack... Env is: ', env)
+  const configs = {
+    development: async function startDevelopmentWebpack() {
+      console.log('Starting `development` webpack.')
+      return await require('./config/development.webpack.config.babel').default()
+    },
+    production: async function startProductionWebpack() {
+      console.log('Starting `production` webpack.')
+      return await require('./config/production.webpack.config.babel').default()
+    },
+    vendors: async function startVendorsWebpack() {
+      console.log('Starting `vendors` webpack.')
+      return await require('./config/vendors.webpack.config.babel').default()
+    },
+  }
+
+  return configs[env] ? configs[env]() : configs['development']()
 }

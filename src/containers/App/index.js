@@ -1,34 +1,55 @@
-import React, { Component } from 'react'
+import { hot } from 'react-hot-loader/root'
+import React from 'react'
+import loadable from '@loadable/component'
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom'
 
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
+import { AuthProvider } from '@/contexts/Auth'
 
-/*
-  - Uncommenting the line below will break the linter.
-  - However, if you do include it, you will notice that when building,
-    `purifycss` removes any unused CSS.
- */
-// import PurifiedCss from '@/containers/PurifiedCss'
+import Header from '@/components/Header'
+import Loading from '@/components/Loading'
+
+import { PublicRoute, NoMatchRoute, PrivateRoute } from '@/containers/Routes'
 
 import './styles.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <Icon />
-          <h2>this is that-react-app-you-want.</h2>
+const LoadableComp = { fallback: <Loading /> }
+
+const HomePage = loadable(() => import('@/scenes/Home'), LoadableComp)
+const AboutPage = loadable(() => import('@/scenes/About'), LoadableComp)
+const LoginPage = loadable(() => import('@/scenes/Login'), LoadableComp)
+const LogoutPage = loadable(() => import('@/scenes/Logout'), LoadableComp)
+const PrivatePage = loadable(() => import('@/scenes/Private'), LoadableComp)
+
+function App() {
+  return (
+    <React.Fragment>
+      <AuthProvider>
+        <div className="App">
+          <Router>
+            <div>
+              <Header />
+              <Switch key="app">
+                <PublicRoute component={HomePage} exact path="/home" />
+                <PublicRoute component={AboutPage} exact path="/about" />
+                <PublicRoute component={LoginPage} exact path="/login" />
+                <PrivateRoute component={LogoutPage} exact path="/logout" />
+                <PrivateRoute component={PrivatePage} exact path="/private" />
+                <PrivateRoute exact path="/">
+                  <Redirect to="/private" />
+                </PrivateRoute>
+                <Route component={NoMatchRoute} path="*" />
+              </Switch>
+            </div>
+          </Router>
         </div>
-        <p className="App-intro">
-          Run the <code>build</code> command to check out <code>purifycss</code>{' '}
-          or click the button for some chunks & lazy loading.
-        </p>
-        <br />
-        <Button />
-      </div>
-    )
-  }
+      </AuthProvider>
+    </React.Fragment>
+  )
 }
 
-export default App
+export default hot(App)
