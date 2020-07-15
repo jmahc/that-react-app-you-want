@@ -2,19 +2,21 @@ import { stats } from './stats'
 import { PATHS } from './paths'
 
 export const devServerConfig = () => {
-  console.log('dev server config')
+  const isProduction = process.env.NODE_ENV === 'production'
+
   return {
     // Show compile warnings and errors with this setting
-    clientLogLevel: 'trace', // 'none',
+    // clientLogLevel: 'trace', // 'none',
     // Enable gzip compression of generated files
-    compress: true,
+    compress: isProduction,
     contentBase: PATHS.appPublic,
     historyApiFallback: true,
-    hot: true,
+    hot: !isProduction,
     hotOnly: true,
-    host: process.env.HOST_NAME || '0.0.0.0',
-    https: process.env.HTTPS === 'true' ? 'https' : 'http' === 'https',
-    open: true,
+    inline: !isProduction,
+    // host: process.env.HOST_NAME || '0.0.0.0',
+    // https: process.env.HTTPS === 'true' ? 'https' : 'http' === 'https',
+    open: !isProduction,
     overlay: {
       errors: true,
       warnings: true,

@@ -1,8 +1,5 @@
 module.exports = {
   plugins: [
-    require('stylelint')({
-      /* your options */
-    }),
     require('precss'),
     require('autoprefixer'),
     require('postcss-color-function'),

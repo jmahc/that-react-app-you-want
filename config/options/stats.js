@@ -1,12 +1,16 @@
 export const stats = {
   assets: true,
+  children: false,
   chunks: false,
-  chunkModules: false,
+  // chunkModules: false,
   colors: true,
   errors: true,
   errorDetails: true,
+  hash: true,
   modules: false,
-  publicPath: true,
+  publicPath: false,
   reasons: true,
+  timings: true,
+  version: false,
   warnings: true,
 }
